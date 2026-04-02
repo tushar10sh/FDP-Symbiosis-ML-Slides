@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Section 1 — The Machine Learning Introduction</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+    .launch-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #F59E0B;
+        color: #111827;
+        font-size: 18px;
+        font-weight: 800;
+        font-family: 'Inter', sans-serif;
+        padding: 16px 36px;
+        border-radius: 8px;
+        text-decoration: none;
+        letter-spacing: 0.3px;
+        transition: background 0.15s, transform 0.15s;
+        border: none;
+        cursor: pointer;
+    }
+    .launch-btn:hover { background-color: #FBBF24; transform: translateY(-1px); }
+</style>
+</head>
+<body>
+<div class="slide-container">
+
+<!-- Left dark panel -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 540px; height: 720px; background-color: #111827;"></div>
+<!-- Amber accent line -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 540px; top: 0px; width: 8px; height: 720px; background-color: #F59E0B;"></div>
+<!-- Dot grid overlay -->
+<div data-object="true" data-object-type="image" style="position: absolute; left: 0px; top: 0px; width: 540px; height: 720px; opacity: 0.08; background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+<!-- Section badge -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 68px; width: 130px; height: 30px; background-color: #F59E0B; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 70px; width: 130px; color: #111827; text-align: center;">
+  <p style="margin: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Section 1</p>
+</div>
+
+<!-- Left title -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 122px; width: 450px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 54px; line-height: 1.1; font-weight: 800; letter-spacing: -1px;">The Machine<br/>Learning<br/><span style="color: #F59E0B;">Deep Introduction</span></h1>
+</div>
+
+<!-- Description -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 380px; width: 448px; color: #D1D5DB;">
+  <p style="margin: 0; font-size: 16px; line-height: 1.65; font-weight: 300;">A high-level tour of what ML is, the types of systems, the key challenges, and how to evaluate models — before writing a single line of code.</p>
+  <div style="margin-top: 28px; padding-top: 18px; border-top: 1px solid #374151;">
+    <!-- <p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #9CA3AF;">Source</p> -->
+    <!-- <p style="margin: 4px 0 0; font-size: 14px; font-weight: 600; color: #ffffff;"></p> -->
+  </div>
+</div>
+
+<!-- Slide count on left -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 658px; width: 448px; color: #6B7280;">
+  <!-- <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">15 slides · Chapter 1 (pp. 1–34)</p> -->
+</div>
+
+<!-- Right panel content -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 620px; top: 100px; width: 600px; color: #1F2937;">
+  <h2 style="margin: 0; font-size: 30px; font-weight: 700;">What's Inside</h2>
+</div>
+
+<!-- Topic list -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 620px; top: 148px; width: 600px; color: #374151;">
+  <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
+    <div style="display: flex; align-items: center; gap: 12px; background: #F9FAFB; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #3B82F6;">
+      <i class="fa-solid fa-lightbulb" style="color:#3B82F6; font-size:16px; min-width:18px;"></i>
+      <span>What is ML &amp; why use it? — definitions and motivation</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; background: #F9FAFB; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #10B981;">
+      <i class="fa-solid fa-table-cells" style="color:#10B981; font-size:16px; min-width:18px;"></i>
+      <span>Real-world ML applications across industries</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; background: #F9FAFB; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #8B5CF6;">
+      <i class="fa-solid fa-sitemap" style="color:#8B5CF6; font-size:16px; min-width:18px;"></i>
+      <span>Types of ML systems — supervised, unsupervised, RL, batch, online</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; background: #F9FAFB; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #F59E0B;">
+      <i class="fa-solid fa-chart-scatter" style="color:#F59E0B; font-size:16px; min-width:18px;"></i>
+      <span>Model-based learning in practice — linear regression case study</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; background: #F9FAFB; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #DC2626;">
+      <i class="fa-solid fa-triangle-exclamation" style="color:#DC2626; font-size:16px; min-width:18px;"></i>
+      <span>Main challenges — bad data, overfitting, underfitting</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; background: #F9FAFB; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #059669;">
+      <i class="fa-solid fa-flask" style="color:#059669; font-size:16px; min-width:18px;"></i>
+      <span>Testing &amp; validation — train/test split, cross-validation</span>
+    </div>
+  </div>
+</div>
+
+<!-- Launch button -->
+<div style="position: absolute; left: 620px; top: 596px;">
+  <a href="./section-1/index.html" class="launch-btn" target="_blank">
+    <i class="fa-solid fa-play"></i>
+    Start Section 1
+  </a>
+</div>
+
+<!-- Decorative circles -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 1082px; top: 620px; width: 20px; height: 20px; border-radius: 50%; background-color: #F59E0B; opacity: 0.2;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 1122px; top: 655px; width: 38px; height: 38px; border-radius: 50%; background-color: #3B82F6; opacity: 0.2;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 1186px; top: 600px; width: 58px; height: 58px; border-radius: 50%; background-color: #10B981; opacity: 0.2;"></div>
+
+</div>
+</body>
+</html>
