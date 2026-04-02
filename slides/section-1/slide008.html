@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Semisupervised & Reinforcement Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Semisupervised &amp; Reinforcement Learning</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 8 / 15</p>
+</div>
+
+<!-- ---- SEMISUPERVISED SECTION ---- -->
+<!-- Section label -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 590px; height: 36px; background-color: #FEF3C7; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 78px; top: 108px; font-size: 18px; color: #D97706;"><i class="fa-solid fa-circle-half-stroke"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 108px; top: 105px; width: 520px; color: #92400E;">
+  <p style="margin: 0; font-size: 15px; font-weight: 700;">Semisupervised Learning — "A Little Label Goes a Long Way"</p>
+</div>
+
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 148px; width: 590px; height: 284px; background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px;"></div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 160px; width: 550px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">Labelling data is <strong>time-consuming and costly</strong>. In practice you often have <strong>many unlabelled instances</strong> and few labelled ones. Semisupervised algorithms handle data that is partially labelled.</p>
+  <p style="margin: 12px 0 0; font-size: 14px; font-weight: 600; color: #1F2937;">How it works:</p>
+  <p style="margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #4B5563;">Most algorithms combine <strong>unsupervised</strong> components (e.g., clustering to group unlabelled data) with <strong>supervised</strong> fine-tuning on the labelled subset.</p>
+</div>
+
+<!-- Google Photos example box -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 530px; width: 550px; height: 116px; background-color: #1F2937; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 98px; top: 550px; font-size: 24px; color: #F59E0B;"><i class="fa-brands fa-google"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 140px; top: 540px; width: 476px; color: #F3F4F6;">
+  <p style="margin: 0; font-size: 14px; font-weight: 700; color: #F59E0B;">Google Photos — a real example</p>
+  <p style="margin: 5px 0 0; font-size: 13px; line-height: 1.55; color: #D1D5DB;">It automatically recognises that the <em>same person A</em> appears in photos 1, 5, 11 (clustering = unsupervised). You add <strong>one label per person</strong> and it can name everyone across all photos — powerful semisupervised learning.</p>
+</div>
+
+<!-- DBN note -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 420px; width: 550px; height: 0px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 340px; width: 550px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; color: #6B7280; line-height: 1.5;"><strong>Deep Belief Networks (DBNs):</strong> Built from stacked <em>Restricted Boltzmann Machines (RBMs)</em> trained sequentially in unsupervised fashion, then fine-tuned with supervised techniques — a classic semisupervised architecture.</p>
+</div>
+
+<!-- ---- REINFORCEMENT LEARNING SECTION ---- -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 690px; top: 100px; width: 530px; height: 36px; background-color: #EDE9FE; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 708px; top: 108px; font-size: 18px; color: #7C3AED;"><i class="fa-solid fa-robot"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 738px; top: 105px; width: 460px; color: #5B21B6;">
+  <p style="margin: 0; font-size: 15px; font-weight: 700;">Reinforcement Learning — "Learn by Doing"</p>
+</div>
+
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 690px; top: 148px; width: 530px; height: 498px; background-color: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 8px;"></div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 710px; top: 160px; width: 490px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">The learning system is called an <strong>agent</strong>. It observes the <em>environment</em>, selects and performs <em>actions</em>, and gets <strong>rewards</strong> or <strong>penalties</strong> in return. It must learn by itself what the best strategy — the <em>policy</em> — is.</p>
+</div>
+
+<!-- RL cycle steps -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 710px; top: 260px; width: 490px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; font-weight: 700; color: #5B21B6; text-transform: uppercase; letter-spacing: 0.5px;">The RL Loop</p>
+  <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="min-width: 24px; height: 24px; background: #7C3AED; border-radius: 50%; color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+      <p style="margin: 0; font-size: 14px; color: #374151;"><strong>Observe</strong> the environment state</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="min-width: 24px; height: 24px; background: #7C3AED; border-radius: 50%; color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+      <p style="margin: 0; font-size: 14px; color: #374151;"><strong>Select action</strong> using the current policy</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="min-width: 24px; height: 24px; background: #7C3AED; border-radius: 50%; color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+      <p style="margin: 0; font-size: 14px; color: #374151;"><strong>Perform the action</strong> in the environment</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="min-width: 24px; height: 24px; background: #7C3AED; border-radius: 50%; color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+      <p style="margin: 0; font-size: 14px; color: #374151;"><strong>Receive reward or penalty</strong></p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="min-width: 24px; height: 24px; background: #7C3AED; border-radius: 50%; color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+      <p style="margin: 0; font-size: 14px; color: #374151;"><strong>Update the policy</strong> (learning step)</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="min-width: 24px; height: 24px; background: #7C3AED; border-radius: 50%; color: white; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">6</div>
+      <p style="margin: 0; font-size: 14px; color: #374151;"><strong>Iterate</strong> until an optimal policy is found</p>
+    </div>
+  </div>
+</div>
+
+<!-- AlphaGo box -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 710px; top: 530px; width: 490px; height: 96px; background-color: #1F2937; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 730px; top: 552px; font-size: 24px; color: #F59E0B;"><i class="fa-solid fa-trophy"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 772px; top: 540px; width: 412px; color: #F3F4F6;">
+  <p style="margin: 0; font-size: 14px; font-weight: 700; color: #F59E0B;">DeepMind's AlphaGo</p>
+  <p style="margin: 5px 0 0; font-size: 13px; line-height: 1.5; color: #D1D5DB;">Beat world Go champion Ke Jie (May 2017) by analysing millions of games then playing against itself. Learning was <em>off</em> during championship games — it was applying its learned policy.</p>
+</div>
+</div>
+</body>
+</html>

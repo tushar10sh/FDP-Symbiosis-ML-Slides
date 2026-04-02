@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Unsupervised Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Unsupervised Learning</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 7 / 15</p>
+</div>
+
+<!-- Definition banner -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 68px; background-color: #ECFDF5; border-left: 6px solid #059669; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 120px; font-size: 28px; color: #059669;"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 126px; top: 108px; width: 1070px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; font-weight: 600; color: #065F46;">Core Idea</p>
+  <p style="margin: 4px 0 0; font-size: 17px; line-height: 1.4;">Training data is <strong>unlabelled</strong> — the system tries to learn structure <strong>without a teacher</strong>. The goal is to discover hidden patterns.</p>
+</div>
+
+<!-- 4 task cards -->
+<!-- Clustering -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 190px; width: 268px; height: 320px; background-color: #ffffff; border: 1px solid #A7F3D0; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 190px; width: 268px; height: 48px; background-color: #059669; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 78px; top: 204px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-circle-nodes"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 114px; top: 204px; width: 200px; color: #ffffff;">
+  <p style="margin: 0; font-size: 17px; font-weight: 700;">Clustering</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 78px; top: 250px; width: 232px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.5;">Group similar instances together — the algorithm finds those connections without being told which group each instance belongs to.</p>
+  <p style="margin: 12px 0 0; font-size: 13px; font-weight: 600; color: #1F2937;">Algorithms:</p>
+  <ul style="margin: 4px 0 0; padding-left: 16px; font-size: 13px; color: #4B5563; line-height: 1.7;">
+    <li><strong>K-Means</strong></li>
+    <li><strong>DBSCAN</strong></li>
+    <li>Hierarchical Cluster Analysis (HCA)</li>
+  </ul>
+  <div style="margin-top: 10px; background: #D1FAE5; border-radius: 5px; padding: 8px 10px;">
+    <p style="margin: 0; font-size: 12px; color: #065F46;"><strong>Example:</strong> Blog visitors split into groups — 40% male comic fans, 20% young sci-fi readers.</p>
+  </div>
+</div>
+
+<!-- Anomaly Detection -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 356px; top: 190px; width: 268px; height: 320px; background-color: #ffffff; border: 1px solid #FED7AA; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 356px; top: 190px; width: 268px; height: 48px; background-color: #EA580C; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 374px; top: 204px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 410px; top: 204px; width: 200px; color: #ffffff;">
+  <p style="margin: 0; font-size: 17px; font-weight: 700;">Anomaly Detection</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 374px; top: 250px; width: 232px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.5;">Detect unusual instances — shown mostly <em>normal</em> examples during training, so it learns what "normal" looks like.</p>
+  <p style="margin: 12px 0 0; font-size: 13px; font-weight: 600; color: #1F2937;">Algorithms:</p>
+  <ul style="margin: 4px 0 0; padding-left: 16px; font-size: 13px; color: #4B5563; line-height: 1.7;">
+    <li>One-class SVM</li>
+    <li><strong>Isolation Forest</strong></li>
+  </ul>
+  <div style="margin-top: 10px; background: #FFEDD5; border-radius: 5px; padding: 8px 10px;">
+    <p style="margin: 0; font-size: 12px; color: #C2410C;"><strong>Also:</strong> <em>Novelty detection</em> — find new instances different from all training instances (requires very clean training set).</p>
+  </div>
+</div>
+
+<!-- Dimensionality Reduction -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 652px; top: 190px; width: 268px; height: 320px; background-color: #ffffff; border: 1px solid #DDD6FE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 652px; top: 190px; width: 268px; height: 48px; background-color: #7C3AED; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 670px; top: 204px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-compress"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 706px; top: 204px; width: 200px; color: #ffffff;">
+  <p style="margin: 0; font-size: 17px; font-weight: 700;">Dim. Reduction</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 670px; top: 250px; width: 232px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.5;">Simplify data without losing too much information. Merge correlated features into one (<em>feature extraction</em>).</p>
+  <p style="margin: 12px 0 0; font-size: 13px; font-weight: 600; color: #1F2937;">Algorithms:</p>
+  <ul style="margin: 4px 0 0; padding-left: 16px; font-size: 13px; color: #4B5563; line-height: 1.7;">
+    <li><strong>PCA</strong>, Kernel PCA</li>
+    <li>LLE, <strong>t-SNE</strong></li>
+  </ul>
+  <div style="margin-top: 10px; background: #EDE9FE; border-radius: 5px; padding: 8px 10px;">
+    <p style="margin: 0; font-size: 12px; color: #5B21B6;"><strong>Tip:</strong> Reduce dimensions <em>before</em> feeding to supervised ML — faster, less memory, often better performance.</p>
+  </div>
+</div>
+
+<!-- Association Rule Learning -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 948px; top: 190px; width: 272px; height: 320px; background-color: #ffffff; border: 1px solid #BFDBFE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 948px; top: 190px; width: 272px; height: 48px; background-color: #2563EB; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 966px; top: 204px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-link"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1002px; top: 204px; width: 200px; color: #ffffff;">
+  <p style="margin: 0; font-size: 17px; font-weight: 700;">Association Rules</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 966px; top: 250px; width: 236px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.5;">Dig into large datasets and discover <strong>interesting relations</strong> between attributes automatically.</p>
+  <p style="margin: 12px 0 0; font-size: 13px; font-weight: 600; color: #1F2937;">Algorithms:</p>
+  <ul style="margin: 4px 0 0; padding-left: 16px; font-size: 13px; color: #4B5563; line-height: 1.7;">
+    <li><strong>Apriori</strong></li>
+    <li>Eclat</li>
+  </ul>
+  <div style="margin-top: 10px; background: #DBEAFE; border-radius: 5px; padding: 8px 10px;">
+    <p style="margin: 0; font-size: 12px; color: #1D4ED8;"><strong>Example:</strong> Supermarket sales reveal: BBQ sauce + chips → steak. Place items together!</p>
+  </div>
+</div>
+
+<!-- Bottom visualisation note -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 550px; width: 1160px; height: 156px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 82px; top: 585px; font-size: 28px; color: #7C3AED;"><i class="fa-solid fa-eye"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 585px; width: 1060px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2937;">Visualisation Algorithms — a special case of unsupervised learning</p>
+  <p style="margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #4B5563;">Feed complex unlabelled data → get a <strong>2D or 3D representation</strong> that can be plotted. These algorithms try to preserve the data's structure (e.g., keep separate clusters from overlapping). Helps you understand how data is organised and spot unexpected patterns.</p>
+  <p style="margin: 8px 0 0; font-size: 13px; color: #6B7280;"><strong>t-SNE</strong> is particularly popular: it can reveal semantic clusters even for image datasets (animals vs. vehicles, etc.).</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Batch vs Online Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Batch vs. Online Learning</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 9 / 15</p>
+</div>
+
+<!-- Intro -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 92px; width: 1160px; color: #6B7280;">
+  <p style="margin: 0; font-size: 15px;">Classification criterion: <strong style="color: #374151;">Can the system learn incrementally from a stream of incoming data?</strong></p>
+</div>
+
+<!-- BATCH column -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 128px; width: 560px; height: 450px; background-color: #ffffff; border: 1px solid #BFDBFE; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 128px; width: 560px; height: 56px; background-color: #1E40AF; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 146px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-server"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 143px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Batch Learning <span style="font-size: 14px; font-weight: 400; opacity: 0.8;">(Offline Learning)</span></p>
+</div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 198px; width: 520px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">The system <strong>cannot learn incrementally</strong>. It must be trained using <em>all available data at once</em>. This typically takes a lot of time and compute resources — done offline.</p>
+  <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55;">Once trained and deployed, the system runs without further learning — it just <em>applies what it learned</em>.</p>
+
+  <div style="margin-top: 16px; background: #EFF6FF; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #1D4ED8;">To handle new data:</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;">Train a <strong>new version</strong> on the full dataset (old + new), then swap out the old system. This can be automated — but training from scratch daily is expensive.</p>
+  </div>
+
+  <div style="margin-top: 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #374151;">Limitations:</p>
+    <ul style="margin: 6px 0 0; padding-left: 18px; font-size: 13px; color: #4B5563; line-height: 1.7;">
+      <li>Takes hours to train on large datasets</li>
+      <li>Requires a lot of CPU, memory, disk, I/O</li>
+      <li>Cannot adapt to rapidly changing data (e.g., stock prices)</li>
+      <li>Impractical for resource-limited devices (e.g., smartphone, Mars rover)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ONLINE column -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 128px; width: 560px; height: 450px; background-color: #ffffff; border: 1px solid #A7F3D0; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 128px; width: 560px; height: 56px; background-color: #059669; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 680px; top: 146px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-bolt"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 720px; top: 143px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Online Learning <span style="font-size: 14px; font-weight: 400; opacity: 0.8;">(Incremental)</span></p>
+</div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 680px; top: 198px; width: 520px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">The system trains <strong>incrementally</strong> by feeding it data individually or in small groups called <em>mini-batches</em>. Each learning step is fast and cheap — learns <em>on the fly</em>.</p>
+  <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55;">Great for continuous data streams (stock prices) and for datasets too large to fit in RAM (<em>out-of-core learning</em>).</p>
+
+  <!-- Learning rate box -->
+  <div style="margin-top: 16px; background: #ECFDF5; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #065F46;"><i class="fa-solid fa-sliders" style="margin-right: 6px;"></i>Key Parameter: Learning Rate</p>
+    <div style="margin-top: 8px; display: flex; gap: 10px;">
+      <div style="flex: 1; background: #FEF2F2; border-radius: 5px; padding: 8px 10px;">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; color: #DC2626;">High Learning Rate</p>
+        <p style="margin: 3px 0 0; font-size: 12px; color: #374151;">Adapts fast to new data but <strong>quickly forgets</strong> old data.</p>
+      </div>
+      <div style="flex: 1; background: #FFFBEB; border-radius: 5px; padding: 8px 10px;">
+        <p style="margin: 0; font-size: 12px; font-weight: 700; color: #D97706;">Low Learning Rate</p>
+        <p style="margin: 3px 0 0; font-size: 12px; color: #374151;">More inertia. Stable but slower to adapt; less sensitive to outliers.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warning -->
+  <div style="margin-top: 14px; background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #C2410C;"><i class="fa-solid fa-shield-halved" style="margin-right: 5px;"></i>Challenge: Data Quality</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #374151; line-height: 1.5;">If bad data is fed in (malfunctioning sensor, spam attack on a search engine), performance will decline. <strong>Monitor closely</strong> and switch learning off if performance drops.</p>
+  </div>
+</div>
+
+<!-- Comparison table -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 594px; width: 1160px; height: 90px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 606px; width: 1120px; color: #374151;">
+  <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+    <tr style="border-bottom: 1px solid #E5E7EB;">
+      <th style="text-align: left; padding: 4px 10px; color: #6B7280; font-weight: 600; width: 18%;">Property</th>
+      <th style="text-align: left; padding: 4px 10px; color: #1E40AF; font-weight: 600; width: 41%;">Batch</th>
+      <th style="text-align: left; padding: 4px 10px; color: #059669; font-weight: 600; width: 41%;">Online</th>
+    </tr>
+    <tr>
+      <td style="padding: 5px 10px; color: #6B7280; font-weight: 500;">New data</td>
+      <td style="padding: 5px 10px; color: #374151;">Retrain from scratch on full dataset</td>
+      <td style="padding: 5px 10px; color: #374151;">Feed incrementally — adapts immediately</td>
+    </tr>
+    <tr>
+      <td style="padding: 5px 10px; color: #6B7280; font-weight: 500;">Resources</td>
+      <td style="padding: 5px 10px; color: #374151;">High (hours, large RAM/CPU)</td>
+      <td style="padding: 5px 10px; color: #374151;">Low (fast mini-batches, can discard old data)</td>
+    </tr>
+  </table>
+</div>
+</div>
+</body>
+</html>

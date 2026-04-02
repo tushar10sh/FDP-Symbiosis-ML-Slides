@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Main Challenges: Algorithm Problems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Main ML Challenges — Algorithm Problems</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 13 / 15</p>
+</div>
+
+<!-- Overfitting column -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 560px; height: 490px; background-color: #ffffff; border: 1px solid #FECACA; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 560px; height: 56px; background-color: #DC2626; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 118px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 115px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Overfitting <span style="font-size: 14px; font-weight: 400; opacity: 0.85;">(High Variance)</span></p>
+</div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 168px; width: 520px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">The model performs well on <strong>training data</strong> but <em>fails to generalise</em> to new instances. It has learned the <strong>noise</strong>, not the signal — too complex relative to the data.</p>
+
+  <div style="margin-top: 14px; background: #FEF2F2; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #991B1B;">When does it happen?</p>
+    <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.7;">
+      <li>Model has <strong>too many parameters</strong> relative to training instances</li>
+      <li>Training data has <strong>noise / errors</strong></li>
+      <li>Too many unnecessary features</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 12px; background: #ECFDF5; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #065F46;">Solutions:</p>
+    <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.7;">
+      <li>Gather <strong>more training data</strong></li>
+      <li><strong>Simplify the model</strong> (fewer parameters, lower polynomial degree)</li>
+      <li>Apply <strong>regularisation</strong> — constrain the model's freedom (e.g., reduce θ₁ toward 0). The <em>regularisation hyperparameter</em> controls the tradeoff.</li>
+      <li>Reduce noise in training data (fix errors, remove outliers)</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 12px; background: #FFF7ED; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 13px; color: #92400E; font-style: italic;">"A model that has learned too much from training data is like a student who memorised all past exam answers but can't solve a new problem."</p>
+  </div>
+</div>
+
+<!-- Underfitting column -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 100px; width: 560px; height: 490px; background-color: #ffffff; border: 1px solid #A7F3D0; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 100px; width: 560px; height: 56px; background-color: #059669; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 680px; top: 118px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-minus"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 720px; top: 115px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Underfitting <span style="font-size: 14px; font-weight: 400; opacity: 0.85;">(High Bias)</span></p>
+</div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 680px; top: 168px; width: 520px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">The model is <em>too simple</em> to capture the underlying structure — poor performance on <strong>both</strong> training and new data. It makes inaccurate assumptions.</p>
+
+  <div style="margin-top: 14px; background: #ECFDF5; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #065F46;">When does it happen?</p>
+    <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.7;">
+      <li>Model has <strong>too few parameters</strong></li>
+      <li><strong>Features are not informative</strong> enough</li>
+      <li>Too much regularisation (over-constrained)</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 12px; background: #EFF6FF; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #1D4ED8;">Solutions:</p>
+    <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.7;">
+      <li>Select a <strong>more powerful model</strong> with more parameters</li>
+      <li>Provide <strong>better features</strong> (feature engineering)</li>
+      <li><strong>Reduce regularisation</strong> hyperparameter</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 12px; background: #F0F9FF; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 13px; color: #075985; font-style: italic;">"A model that underfit is like a student who only memorised one general rule and applies it everywhere — even where it doesn't work."</p>
+  </div>
+</div>
+
+<!-- Bias-Variance chart + summary row -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 606px; width: 780px; height: 74px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 614px; width: 740px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2937;">The Bias-Variance Trade-off</p>
+  <p style="margin: 5px 0 0; font-size: 13px; color: #4B5563; line-height: 1.5;">Increasing model complexity <strong>reduces bias</strong> (underfitting) but <strong>increases variance</strong> (overfitting risk). The sweet spot is a model complex enough to learn real patterns but simple enough to generalise.</p>
+</div>
+
+<!-- Hyperparameter note -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 860px; top: 606px; width: 360px; height: 74px; background-color: #EDE9FE; border: 1px solid #DDD6FE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 878px; top: 628px; font-size: 20px; color: #7C3AED;"><i class="fa-solid fa-sliders"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 912px; top: 614px; width: 290px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; font-weight: 700; color: #5B21B6;">Hyperparameter</p>
+  <p style="margin: 4px 0 0; font-size: 13px; color: #4B5563; line-height: 1.4;">A parameter of the <em>learning algorithm</em> (not the model). Set <strong>before</strong> training - \(\lambda\) (reg. factor)</p>
+</div>
+</div>
+</body>
+</html>

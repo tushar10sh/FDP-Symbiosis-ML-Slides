@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Types of ML Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Types of ML Systems</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 5 / 15</p>
+</div>
+
+<!-- Intro text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 92px; width: 1160px; color: #6B7280;">
+  <p style="margin: 0; font-size: 15px;">ML systems are classified along <strong style="color: #374151;">three independent axes</strong> — these criteria are <em>not</em> mutually exclusive; a real system can combine all of them.</p>
+</div>
+
+<!-- Axis 1 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 132px; width: 360px; height: 490px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 132px; width: 360px; height: 60px; background-color: #2563EB; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 82px; top: 150px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-chalkboard-user"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 148px; width: 280px; color: #ffffff;">
+  <p style="margin: 0; font-size: 18px; font-weight: 700;">Axis 1 — Supervision</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 208px; width: 320px; color: #374151;">
+  <p style="margin: 0 0 10px; font-size: 14px; color: #6B7280; font-style: italic;">How much human labelling during training?</p>
+  <!-- Supervised -->
+  <div style="background: #DBEAFE; border-radius: 6px; padding: 10px 12px; margin-bottom: 10px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #1D4ED8;">Supervised</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #374151; line-height: 1.4;">Training data includes desired labels (answers). Used for <em>classification</em> &amp; <em>regression</em>.</p>
+  </div>
+  <!-- Unsupervised -->
+  <div style="background: #D1FAE5; border-radius: 6px; padding: 10px 12px; margin-bottom: 10px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #065F46;">Unsupervised</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #374151; line-height: 1.4;">No labels — system discovers structure on its own. Clustering, dim. reduction.</p>
+  </div>
+  <!-- Semisupervised -->
+  <div style="background: #FEF3C7; border-radius: 6px; padding: 10px 12px; margin-bottom: 10px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #92400E;">Semisupervised</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #374151; line-height: 1.4;">Mostly unlabelled data + a few labels. Google Photos face grouping.</p>
+  </div>
+  <!-- RL -->
+  <div style="background: #EDE9FE; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #6D28D9;">Reinforcement Learning</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #374151; line-height: 1.4;">Agent acts, gets rewards/penalties, learns an optimal <em>policy</em>. AlphaGo.</p>
+  </div>
+</div>
+
+<!-- Axis 2 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 460px; top: 132px; width: 360px; height: 490px; background-color: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 460px; top: 132px; width: 360px; height: 60px; background-color: #059669; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 482px; top: 150px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-arrows-rotate"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 520px; top: 148px; width: 280px; color: #ffffff;">
+  <p style="margin: 0; font-size: 18px; font-weight: 700;">Axis 2 — Learning Style</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 480px; top: 208px; width: 320px; color: #374151;">
+  <p style="margin: 0 0 10px; font-size: 14px; color: #6B7280; font-style: italic;">Can the system learn incrementally?</p>
+  <!-- Batch -->
+  <div style="background: #D1FAE5; border-radius: 6px; padding: 12px 14px; margin-bottom: 16px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #065F46;">Batch (Offline) Learning</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;">Trained on <strong>all available data at once</strong>. Can take hours. Then deployed with no further learning. Must retrain from scratch for new data.</p>
+    <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <span style="font-size: 11px; background: #A7F3D0; color: #065F46; padding: 2px 8px; border-radius: 10px; font-weight: 600;">Stable</span>
+      <span style="font-size: 11px; background: #FEE2E2; color: #991B1B; padding: 2px 8px; border-radius: 10px; font-weight: 600;">Resource-heavy</span>
+    </div>
+  </div>
+  <!-- Online -->
+  <div style="background: #FEF9C3; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #854D0E;">Online (Incremental) Learning</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;">Trained <strong>incrementally</strong> in mini-batches. Can learn on the fly. A key parameter is the <em>learning rate</em>: high = fast adapt but forgets; low = stable but slow.</p>
+    <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <span style="font-size: 11px; background: #FEF08A; color: #713F12; padding: 2px 8px; border-radius: 10px; font-weight: 600;">Adaptive</span>
+      <span style="font-size: 11px; background: #FEF08A; color: #713F12; padding: 2px 8px; border-radius: 10px; font-weight: 600;">Out-of-core capable</span>
+    </div>
+  </div>
+</div>
+
+<!-- Axis 3 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 860px; top: 132px; width: 360px; height: 490px; background-color: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 860px; top: 132px; width: 360px; height: 60px; background-color: #7C3AED; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 882px; top: 150px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-network-wired"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 920px; top: 148px; width: 280px; color: #ffffff;">
+  <p style="margin: 0; font-size: 18px; font-weight: 700;">Axis 3 — Generalisation</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 880px; top: 208px; width: 320px; color: #374151;">
+  <p style="margin: 0 0 10px; font-size: 14px; color: #6B7280; font-style: italic;">How does it predict on new data?</p>
+  <!-- Instance-based -->
+  <div style="background: #EDE9FE; border-radius: 6px; padding: 12px 14px; margin-bottom: 16px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #5B21B6;">Instance-Based</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;"><strong>Memorises</strong> training examples. Generalises by comparing new data to known examples using a <em>similarity measure</em>. Simple example: <strong>k-NN</strong>.</p>
+    <div style="margin-top: 8px;">
+      <span style="font-size: 11px; background: #DDD6FE; color: #5B21B6; padding: 2px 8px; border-radius: 10px; font-weight: 600;">k-Nearest Neighbours</span>
+    </div>
+  </div>
+  <!-- Model-based -->
+  <div style="background: #FCE7F3; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #9D174D;">Model-Based</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;"><strong>Builds a model</strong> from training examples, then uses the model to make predictions on new data. Most practical ML systems use this approach.</p>
+    <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <span style="font-size: 11px; background: #FBCFE8; color: #9D174D; padding: 2px 8px; border-radius: 10px; font-weight: 600;">Linear Regression</span>
+      <span style="font-size: 11px; background: #FBCFE8; color: #9D174D; padding: 2px 8px; border-radius: 10px; font-weight: 600;">Neural Networks</span>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom combination note -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 638px; width: 1160px; height: 44px; background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 649px; font-size: 18px; color: #F59E0B;"><i class="fa-solid fa-lightbulb"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 112px; top: 645px; width: 1090px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.5;">Example: A state-of-the-art spam filter can be <strong>online</strong> (incremental), <strong>model-based</strong> (deep neural network), and <strong>supervised</strong> — all three axes combined.</p>
+</div>
+</div>
+</body>
+</html>

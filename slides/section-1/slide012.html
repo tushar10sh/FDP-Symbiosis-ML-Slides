@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Main Challenges: Data Problems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Main ML Challenges — Data Problems</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 12 / 15</p>
+</div>
+
+<!-- Framing banner -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 52px; background-color: #FEF2F2; border-left: 6px solid #DC2626; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 116px; font-size: 22px; color: #DC2626;"><i class="fa-solid fa-circle-exclamation"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 118px; top: 108px; width: 1070px; color: #374151;">
+  <p style="margin: 0; font-size: 16px; line-height: 1.5;">The two main sources of failure in ML: <strong>bad algorithms</strong> and <strong>bad data</strong>. For most tasks, data quality matters more than algorithm choice. <em>"Unreasonable Effectiveness of Data."</em></p>
+</div>
+
+<!-- Challenge 1 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 168px; width: 360px; height: 244px; background-color: #FFF5F5; border: 1px solid #FECACA; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 168px; width: 360px; height: 48px; background-color: #DC2626; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 78px; top: 184px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-scale-unbalanced"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 114px; top: 182px; width: 290px; color: #ffffff;">
+  <p style="margin: 0; font-size: 16px; font-weight: 700;">1. Insufficient Quantity</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 78px; top: 228px; width: 322px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.55;">Even simple ML problems need thousands of examples. Complex problems (images, speech) need millions. A trivial algorithm fed massive data often beats a sophisticated one with little data.</p>
+  <div style="margin-top: 10px; background: #FEE2E2; border-radius: 5px; padding: 8px 10px;">
+    <p style="margin: 0; font-size: 12px; color: #991B1B;"><strong>Banko &amp; Brill (2001):</strong> NLP algorithms with very different complexity performed similarly once given enough data.</p>
+  </div>
+</div>
+
+<!-- Challenge 2 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 450px; top: 168px; width: 360px; height: 244px; background-color: #FFF7ED; border: 1px solid #FED7AA; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 450px; top: 168px; width: 360px; height: 48px; background-color: #EA580C; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 468px; top: 184px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-bullseye"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 504px; top: 182px; width: 290px; color: #ffffff;">
+  <p style="margin: 0; font-size: 16px; font-weight: 700;">2. Nonrepresentative Data</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 468px; top: 228px; width: 322px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.55;">Training data must represent the cases you want to generalise to. If it's not representative, your model will not generalise — and you may not even know it.</p>
+  <div style="margin-top: 10px; background: #FFEDD5; border-radius: 5px; padding: 8px 10px;">
+    <p style="margin: 0; font-size: 12px; color: #C2410C;"><strong>Sampling bias:</strong> 1936 Roosevelt election poll — surveyed car/phone owners (wealthy). Predicted Landon wins. Roosevelt won by a landslide.</p>
+  </div>
+</div>
+
+<!-- Challenge 3 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 840px; top: 168px; width: 380px; height: 244px; background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 840px; top: 168px; width: 380px; height: 48px; background-color: #D97706; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 858px; top: 184px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-filter"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 894px; top: 182px; width: 310px; color: #ffffff;">
+  <p style="margin: 0; font-size: 16px; font-weight: 700;">3. Poor Quality Data</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 858px; top: 228px; width: 342px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.55;">Errors, outliers, and noise in training data — the algorithm struggles to find patterns. Cleaning data is often the most important step.</p>
+  <div style="margin-top: 10px; background: #FEF3C7; border-radius: 5px; padding: 8px 10px;">
+    <p style="margin: 0; font-size: 12px; color: #92400E;"><strong>Options:</strong> Fix errors manually, discard outliers, fill in missing values (imputation), or drop the feature entirely.</p>
+  </div>
+</div>
+
+<!-- Challenge 4: Irrelevant Features -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 430px; width: 560px; height: 196px; background-color: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 430px; width: 560px; height: 48px; background-color: #7C3AED; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 78px; top: 446px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-scissors"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 114px; top: 444px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 16px; font-weight: 700;">4. Irrelevant Features</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 78px; top: 490px; width: 522px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.55;">"Garbage in, garbage out." Including irrelevant features degrades model quality. <em>Feature engineering</em> solves this:</p>
+  <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+    <div style="background: #EDE9FE; border-radius: 5px; padding: 8px 10px; flex: 1;">
+      <strong style="color: #5B21B6;">Feature selection</strong><br/>
+      <span style="color: #4B5563;">Pick the most useful existing features.</span>
+    </div>
+    <div style="background: #EDE9FE; border-radius: 5px; padding: 8px 10px; flex: 1;">
+      <strong style="color: #5B21B6;">Feature extraction</strong><br/>
+      <span style="color: #4B5563;">Combine features into more useful ones (dimensionality reduction).</span>
+    </div>
+    <div style="background: #EDE9FE; border-radius: 5px; padding: 8px 10px; flex: 1;">
+      <strong style="color: #5B21B6;">New features</strong><br/>
+      <span style="color: #4B5563;">Create new features by gathering more data or augmenting existing.</span>
+    </div>
+  </div>
+</div>
+
+<!-- Summary GIGO box -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 430px; width: 560px; height: 196px; background-color: #1F2937; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 680px; top: 440px; width: 520px; color: #F3F4F6;">
+  <p style="margin: 0; font-size: 15px; font-weight: 700; color: #F59E0B;">The Data Quality Checklist</p>
+  <div style="margin-top: 12px; font-size: 13px; line-height: 1.8; color: #D1D5DB;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;"><i class="fa-solid fa-circle-check" style="color: #34D399;"></i> <span>Enough training instances (thousands to millions)</span></div>
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;"><i class="fa-solid fa-circle-check" style="color: #34D399;"></i> <span>Representative of real-world distribution</span></div>
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;"><i class="fa-solid fa-circle-check" style="color: #34D399;"></i> <span>Clean — errors and outliers handled</span></div>
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;"><i class="fa-solid fa-circle-check" style="color: #34D399;"></i> <span>Relevant features selected/engineered</span></div>
+    <div style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-circle-check" style="color: #34D399;"></i> <span>Missing values handled (imputed or dropped)</span></div>
+  </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Instance-Based vs Model-Based Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Instance-Based vs. Model-Based Learning</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 10 / 15</p>
+</div>
+
+<!-- Question banner -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 52px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-left: 6px solid #F59E0B; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 116px; font-size: 22px; color: #F59E0B;"><i class="fa-solid fa-question"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 118px; top: 108px; width: 1070px; color: #374151;">
+  <p style="margin: 0; font-size: 16px; font-weight: 600;">How does the system <em>generalise</em>? Most ML tasks require making good predictions on new, unseen instances.</p>
+</div>
+
+<!-- INSTANCE-BASED column -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 168px; width: 556px; height: 436px; background-color: #ffffff; border: 1px solid #FDE68A; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 168px; width: 556px; height: 56px; background-color: #D97706; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 186px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-copy"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 183px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Instance-Based Learning</p>
+</div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 238px; width: 516px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">The system <strong>learns examples by heart</strong>, then generalises to new cases by comparing them to learned examples using a <em>similarity measure</em>.</p>
+
+  <div style="margin-top: 14px; background: #FFFBEB; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #92400E;">Spam Filter Example</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;">A basic instance-based filter flags emails <em>identical</em> to known spam. A smarter version counts shared words — flags an email if it has <strong>many words in common</strong> with known spam (similarity measure).</p>
+  </div>
+
+  <div style="margin-top: 14px; background: #FFFBEB; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #92400E;">k-Nearest Neighbours (k-NN)</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;">Find the <em>k</em> most similar training instances and assign their majority class (or average value) to the new instance. Simple but powerful.</p>
+  </div>
+
+  <div style="margin-top: 14px; display: flex; gap: 10px;">
+    <div style="flex: 1; background: #D1FAE5; border-radius: 5px; padding: 8px 10px;">
+      <p style="margin: 0; font-size: 12px; font-weight: 700; color: #065F46;"><i class="fa-solid fa-check" style="margin-right: 4px;"></i>Pros</p>
+      <ul style="margin: 4px 0 0; padding-left: 14px; font-size: 12px; color: #374151; line-height: 1.6;">
+        <li>No training phase</li>
+        <li>Naturally adapts as new data added</li>
+      </ul>
+    </div>
+    <div style="flex: 1; background: #FEE2E2; border-radius: 5px; padding: 8px 10px;">
+      <p style="margin: 0; font-size: 12px; font-weight: 700; color: #991B1B;"><i class="fa-solid fa-xmark" style="margin-right: 4px;"></i>Cons</p>
+      <ul style="margin: 4px 0 0; padding-left: 14px; font-size: 12px; color: #374151; line-height: 1.6;">
+        <li>Slow prediction (compares all instances)</li>
+        <li>Memory scales with training size</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MODEL-BASED column -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 664px; top: 168px; width: 556px; height: 436px; background-color: #ffffff; border: 1px solid #BFDBFE; border-radius: 10px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 664px; top: 168px; width: 556px; height: 56px; background-color: #2563EB; border-top-left-radius: 10px; border-top-right-radius: 10px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 684px; top: 186px; font-size: 26px; color: #ffffff;"><i class="fa-solid fa-diagram-project"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 724px; top: 183px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Model-Based Learning</p>
+</div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 684px; top: 238px; width: 516px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">Build a <strong>model</strong> from the training examples, then use that model to make predictions on new data. The model generalises the patterns learned from training.</p>
+
+  <div style="margin-top: 14px; background: #EFF6FF; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #1D4ED8;">The Workflow</p>
+    <ol style="margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: #374151; line-height: 1.8;">
+      <li><strong>Study the data</strong> — explore &amp; visualise</li>
+      <li><strong>Select a model</strong> — choose algorithm &amp; architecture</li>
+      <li><strong>Train the model</strong> — run algorithm to fit parameters</li>
+      <li><strong>Apply the model</strong> — predict on new instances</li>
+    </ol>
+  </div>
+
+  <div style="margin-top: 14px; background: #EFF6FF; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #1D4ED8;">Performance Measures</p>
+    <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.6;">
+      <li><strong>Utility / Fitness function:</strong> Measures how <em>good</em> the model is (maximise)</li>
+      <li><strong>Cost function:</strong> Measures how <em>bad</em> it is (minimise). Linear Regression minimises distance between predictions and training examples.</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 14px; display: flex; gap: 10px;">
+    <div style="flex: 1; background: #D1FAE5; border-radius: 5px; padding: 8px 10px;">
+      <p style="margin: 0; font-size: 12px; font-weight: 700; color: #065F46;"><i class="fa-solid fa-check" style="margin-right: 4px;"></i>Pros</p>
+      <ul style="margin: 4px 0 0; padding-left: 14px; font-size: 12px; color: #374151; line-height: 1.6;">
+        <li>Fast predictions</li>
+        <li>Compact — only need model params</li>
+      </ul>
+    </div>
+    <div style="flex: 1; background: #FEE2E2; border-radius: 5px; padding: 8px 10px;">
+      <p style="margin: 0; font-size: 12px; font-weight: 700; color: #991B1B;"><i class="fa-solid fa-xmark" style="margin-right: 4px;"></i>Cons</p>
+      <ul style="margin: 4px 0 0; padding-left: 14px; font-size: 12px; color: #374151; line-height: 1.6;">
+        <li>Requires training phase</li>
+        <li>Must choose model carefully</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Footer key insight -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 651px; width: 48%; height: 60px; background-color: #1F2937; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 82px; top: 657px; font-size: 22px; color: #F59E0B;"><i class="fa-solid fa-star"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 122px; top: 659px; width: 45%; color: #F3F4F6;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.5;"><strong style="color: #F59E0B;">The true goal of ML</strong> is not to perform well on the <em>training data</em> but to make <strong>good predictions on new, unseen instances</strong>. This is called <em>generalisation</em>.</p>
+</div>
+</div>
+</body>
+</html>

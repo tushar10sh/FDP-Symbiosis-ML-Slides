@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Model-Based Learning in Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Model-Based Learning in Practice</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 11 / 15</p>
+</div>
+
+<!-- Subtitle -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 90px; width: 1160px; color: #6B7280;">
+  <p style="margin: 0; font-size: 15px;">Case study: Does money make people happier? Using GDP per capita to predict life satisfaction — a worked Linear Regression example.</p>
+</div>
+
+<!-- Left: steps panel -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 122px; width: 480px; height: 482px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 134px; width: 440px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; font-weight: 700; color: #1F2937;">The Model-Based ML Workflow</p>
+</div>
+
+<!-- Step 1 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 166px; width: 440px; height: 82px; background-color: #EFF6FF; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 98px; top: 174px; width: 404px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; font-weight: 700; color: #2563EB;"><span style="background: #2563EB; color: white; padding: 1px 8px; border-radius: 10px; margin-right: 6px;">1</span>Study the data</p>
+  <p style="margin: 4px 0 0; font-size: 13px; color: #4B5563; line-height: 1.4;">Download OECD Better Life Index + IMF GDP data. Join, sort by GDP, explore for trends.</p>
+</div>
+
+<!-- Step 2 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 258px; width: 440px; height: 82px; background-color: #ECFDF5; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 98px; top: 266px; width: 404px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; font-weight: 700; color: #059669;"><span style="background: #059669; color: white; padding: 1px 8px; border-radius: 10px; margin-right: 6px;">2</span>Select a model</p>
+  <p style="margin: 4px 0 0; font-size: 13px; color: #4B5563; line-height: 1.4;">Life satisfaction appears to increase linearly with GDP. Select a <strong>Linear Model</strong> with one predictor (GDP per capita).</p>
+</div>
+
+<!-- Step 3 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 350px; width: 440px; height: 100px; background-color: #F5F3FF; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 98px; top: 358px; width: 404px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; font-weight: 700; color: #7C3AED;"><span style="background: #7C3AED; color: white; padding: 1px 8px; border-radius: 10px; margin-right: 6px;">3</span>Train the model</p>
+  <p style="margin: 4px 0 0; font-size: 13px; color: #4B5563; line-height: 1.4;">Run Linear Regression algorithm — minimises the cost function (distance between predictions and training data). Finds optimal: <strong>θ₀ = 4.85</strong>, <strong>θ₁ = 4.91 × 10⁻⁵</strong>.</p>
+</div>
+
+<!-- Step 4 -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 460px; width: 440px; height: 82px; background-color: #FFF7ED; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 98px; top: 468px; width: 404px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; font-weight: 700; color: #D97706;"><span style="background: #D97706; color: white; padding: 1px 8px; border-radius: 10px; margin-right: 6px;">4</span>Make predictions</p>
+  <p style="margin: 4px 0 0; font-size: 13px; color: #4B5563; line-height: 1.4;">Apply the trained model to Cyprus (GDP ~$22,587): predicted life satisfaction ≈ <strong>5.96</strong>. Actual: 6.0 — close!</p>
+</div>
+
+<!-- Right: Chart + equation -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 580px; top: 122px; width: 640px; height: 310px; background-color: #ffffff; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 600px; top: 130px; width: 400px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; font-weight: 600; color: #374151;">GDP per capita vs. Life Satisfaction</p>
+</div>
+<div data-object="true" data-object-type="chart" style="position: absolute; left: 590px; top: 152px; width: 620px; height: 262px;">
+  <canvas id="gdpChart"></canvas>
+</div>
+
+<!-- Equation box -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 580px; top: 446px; width: 640px; height: 80px; background-color: #1F2937; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 600px; top: 455px; width: 600px; color: #F3F4F6;">
+  <p style="margin: 0; font-size: 13px; color: #9CA3AF;">The Linear Model (Equation 1-1)</p>
+  <p style="margin: 4px 0 0; font-size: 19px; font-family: 'Roboto Mono', monospace; color: #F59E0B;">life_satisfaction = θ₀ + θ₁ × GDP_per_capita</p>
+</div>
+
+<!-- Key terms -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 580px; top: 542px; width: 640px; height: 62px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 600px; top: 550px; width: 600px; color: #374151;">
+  <div style="display: flex; gap: 20px; font-size: 13px;">
+    <div><span style="font-weight: 600; color: #7C3AED;">θ₀</span> = bias (intercept) — <em>4.85</em></div>
+    <div><span style="font-weight: 600; color: #2563EB;">θ₁</span> = slope — <em>4.91 × 10⁻⁵</em></div>
+    <div><span style="font-weight: 600; color: #059669;">Model selection:</span> choosing type + architecture</div>
+  </div>
+</div>
+
+<!-- Instance-based note -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 580px; top: 620px; width: 640px; height: 64px; background-color: #FFFBEB; border: 1px solid #FDE68A; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 598px; top: 640px; font-size: 18px; color: #D97706;"><i class="fa-solid fa-lightbulb"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 632px; top: 628px; width: 572px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; line-height: 1.5;">Alternatively, a <strong>k-NN regressor</strong> on the same data (k=3) also predicts ≈5.77 — this is instance-based, no model parameters needed.</p>
+</div>
+
+<!-- Key insight footer -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 620px; width: 504px; height: 64px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 78px; top: 640px; font-size: 18px; color: #2563EB;"><i class="fa-solid fa-circle-info"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 112px; top: 628px; width: 432px; color: #374151;">
+  <p style="margin: 0; font-size: 13px; line-height: 1.5;">The word <strong>"model"</strong> can mean: a type of model (Linear Reg.), a specified architecture, or a final trained model — context matters!</p>
+</div>
+</div>
+
+<script>
+const ctx = document.getElementById('gdpChart').getContext('2d');
+const countries = [
+  {gdp: 12240, ls: 4.9, label: 'Hungary'},
+  {gdp: 17000, ls: 5.2, label: ''},
+  {gdp: 20000, ls: 5.4, label: ''},
+  {gdp: 22587, ls: 6.0, label: 'Cyprus'},
+  {gdp: 27195, ls: 5.8, label: 'Korea'},
+  {gdp: 30000, ls: 6.1, label: ''},
+  {gdp: 37675, ls: 6.5, label: 'France'},
+  {gdp: 40000, ls: 6.7, label: ''},
+  {gdp: 43000, ls: 6.9, label: ''},
+  {gdp: 46000, ls: 7.1, label: ''},
+  {gdp: 50962, ls: 7.3, label: 'Australia'},
+  {gdp: 55805, ls: 7.2, label: 'U.S.'},
+];
+new Chart(ctx, {
+  type: 'scatter',
+  data: {
+    datasets: [
+      {
+        label: 'Countries',
+        data: countries.map(c => ({x: c.gdp, y: c.ls})),
+        backgroundColor: '#3B82F6',
+        pointRadius: 7,
+        pointHoverRadius: 9,
+      },
+      {
+        label: 'Linear fit',
+        data: [{x: 10000, y: 5.34}, {x: 60000, y: 7.79}],
+        type: 'line',
+        borderColor: '#F59E0B',
+        borderWidth: 2.5,
+        pointRadius: 0,
+        fill: false,
+        tension: 0,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const c = countries[ctx.dataIndex];
+            return c ? `${c.label || ''} GDP: $${ctx.parsed.x.toLocaleString()} | Satisfaction: ${ctx.parsed.y}` : '';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'GDP per capita (USD)', font: { family: 'Inter', size: 12 } },
+        ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k', font: { size: 11 } },
+        grid: { color: '#F3F4F6' }
+      },
+      y: {
+        title: { display: true, text: 'Life Satisfaction', font: { family: 'Inter', size: 12 } },
+        min: 4,
+        max: 8,
+        ticks: { font: { size: 11 } },
+        grid: { color: '#F3F4F6' }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

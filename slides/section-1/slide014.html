@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Testing and Validation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Testing &amp; Validation</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 14 / 15</p>
+</div>
+
+<!-- Core concept banner -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 56px; background-color: #EFF6FF; border-left: 6px solid #2563EB; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 118px; font-size: 24px; color: #2563EB;"><i class="fa-solid fa-flask"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 108px; width: 1070px; color: #374151;">
+  <p style="margin: 0; font-size: 16px; font-weight: 600; color: #1E40AF;">The Core Problem</p>
+  <p style="margin: 2px 0 0; font-size: 15px;">How do you know if your model will generalise well to new data <em>before</em> deploying it in production?</p>
+</div>
+
+<!-- Left: Train/Test split -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 172px; width: 550px; height: 410px; background-color: #ffffff; border: 1px solid #BFDBFE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 172px; width: 550px; height: 50px; background-color: #2563EB; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 78px; top: 188px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-split"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 116px; top: 185px; width: 470px; color: #ffffff;">
+  <p style="margin: 0; font-size: 18px; font-weight: 700;">Train / Test Split</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 234px; width: 510px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">Split your data into a <strong>training set</strong> and a <strong>test set</strong>. Train on the training set, evaluate on the test set to get the <em>generalisation error</em> (out-of-sample error).</p>
+
+  <!-- Visual split bar -->
+  <div style="margin-top: 16px; border-radius: 6px; overflow: hidden; display: flex; height: 32px; font-size: 13px; font-weight: 600;">
+    <div style="flex: 8; background: #2563EB; display: flex; align-items: center; justify-content: center; color: white;">Training Set (80%)</div>
+    <div style="flex: 2; background: #EF4444; display: flex; align-items: center; justify-content: center; color: white;">Test (20%)</div>
+  </div>
+
+  <div style="margin-top: 14px; background: #EFF6FF; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #1D4ED8;">Rule of thumb:</p>
+    <ul style="margin: 6px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.7;">
+      <li>Typical split: <strong>80% train / 20% test</strong></li>
+      <li>Low training error + high generalisation error → <strong>overfitting</strong></li>
+      <li>High error on both → <strong>underfitting</strong></li>
+      <li>The test set should be used <strong>only once</strong> — to estimate production performance</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 12px; background: #FEF2F2; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #DC2626;"><i class="fa-solid fa-triangle-exclamation" style="margin-right: 5px;"></i>Data Snooping Bias</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #374151; line-height: 1.4;">If you use the test set too often to tune hyperparameters, you inadvertently overfit to the test set — and the model will likely underperform in production.</p>
+  </div>
+</div>
+
+<!-- Right: Validation set + cross-validation -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 650px; top: 172px; width: 570px; height: 410px; background-color: #ffffff; border: 1px solid #A7F3D0; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 650px; top: 172px; width: 570px; height: 50px; background-color: #059669; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 668px; top: 188px; font-size: 22px; color: #ffffff;"><i class="fa-solid fa-sliders"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 706px; top: 185px; width: 490px; color: #ffffff;">
+  <p style="margin: 0; font-size: 18px; font-weight: 700;">Validation Set &amp; Cross-Validation</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 668px; top: 234px; width: 532px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.55;">To <strong>tune hyperparameters</strong> and select among models without touching the test set, reserve a separate <em>validation (dev) set</em> from training data.</p>
+
+  <!-- Three-way split visual -->
+  <div style="margin-top: 16px; border-radius: 6px; overflow: hidden; display: flex; height: 32px; font-size: 12px; font-weight: 600;">
+    <div style="flex: 6; background: #2563EB; display: flex; align-items: center; justify-content: center; color: white;">Train (60%)</div>
+    <div style="flex: 2; background: #F59E0B; display: flex; align-items: center; justify-content: center; color: white;">Val (20%)</div>
+    <div style="flex: 2; background: #EF4444; display: flex; align-items: center; justify-content: center; color: white;">Test (20%)</div>
+  </div>
+
+  <div style="margin-top: 14px; background: #ECFDF5; border-radius: 6px; padding: 12px 14px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #065F46;"><i class="fa-solid fa-rotate" style="margin-right: 5px;"></i>Cross-Validation (k-fold)</p>
+    <p style="margin: 6px 0 0; font-size: 13px; color: #374151; line-height: 1.5;">Split training data into <strong>k folds</strong>. Train k times, each time using a different fold as the validation set and the rest for training. Average the scores across all k evaluations.</p>
+    <ul style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.7;">
+      <li>No wasted data — every instance is used for both train and validation</li>
+      <li>More reliable performance estimate (especially for small datasets)</li>
+      <li>k = 5 or 10 is typical</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 12px; background: #F0FDF4; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; color: #15803D;">Workflow:</p>
+    <ol style="margin: 5px 0 0; padding-left: 16px; font-size: 13px; color: #374151; line-height: 1.7;">
+      <li>Tune model &amp; hyperparameters using cross-validation on train set</li>
+      <li>Retrain best model on full training set</li>
+      <li>Evaluate <strong>once</strong> on the test set</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Bottom note: no free lunch -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 641px; width: 1160px; height: 70px; background-color: #1F2937; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 82px; top: 645px; font-size: 24px; color: #F59E0B;"><i class="fa-solid fa-scale-balanced"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 124px; top: 645px; width: 1070px; color: #F3F4F6;">
+  <p style="margin: 0; font-size: 14px; font-weight: 700; color: #F59E0B;">No Free Lunch Theorem (Wolpert, 1996)</p>
+  <p style="margin: 5px 0 0; font-size: 13px; line-height: 1.55; color: #D1D5DB;">There is no a priori reason to prefer one model over another. The only way to know which model generalises best is to <strong>evaluate on data</strong>. This requires reasonable assumptions about the data — and that's why testing &amp; validation are not optional, they are fundamental.</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Supervised Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+    .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 900px; color: #ffffff;">
+  <h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Supervised Learning</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1060px; top: 28px; width: 180px; text-align: right; color: #9CA3AF;">
+  <p style="margin: 0; font-size: 13px; font-family: 'Roboto Mono', monospace;">Slide 6 / 15</p>
+</div>
+
+<!-- Definition banner -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 72px; background-color: #EFF6FF; border-left: 6px solid #2563EB; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 122px; font-size: 28px; color: #2563EB;"><i class="fa-solid fa-chalkboard-user"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 126px; top: 108px; width: 1070px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; font-weight: 600; color: #1E40AF;">Core Idea</p>
+  <p style="margin: 4px 0 0; font-size: 17px; line-height: 1.4;">The training set you feed to the algorithm includes the <strong>desired solutions</strong>, called <em>labels</em>. The model learns to map inputs → outputs.</p>
+</div>
+
+<!-- Two task columns -->
+<!-- Classification -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 194px; width: 560px; height: 370px; background-color: #ffffff; border: 1px solid #BFDBFE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 194px; width: 560px; height: 52px; background-color: #2563EB; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 210px; font-size: 24px; color: #ffffff;"><i class="fa-solid fa-tags"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 118px; top: 208px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Task 1 — Classification</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 258px; width: 520px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.5;">Predict a <strong>discrete class label</strong> for each input. The spam filter is a classic binary classification example (spam / ham).</p>
+  <hr style="border: 0; border-top: 1px solid #E5E7EB; margin: 14px 0;"/>
+  <p style="margin: 0; font-size: 14px; font-weight: 600; color: #1F2937;">Key concepts:</p>
+  <ul style="margin: 8px 0 0; padding-left: 20px; font-size: 14px; line-height: 1.7; color: #4B5563;">
+    <li><strong>Binary classification:</strong> Two classes (yes / no)</li>
+    <li><strong>Multiclass classification:</strong> Many classes (digit 0–9)</li>
+    <li><strong>Attributes vs. Features:</strong> Attribute = data type; Feature = attribute + value</li>
+    <li><strong>Labels:</strong> The "right answers" in training data</li>
+  </ul>
+  <div style="margin-top: 14px; background: #DBEAFE; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 600; color: #1D4ED8;">Example: Spam Filter</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #1E40AF;">Input: email text &amp; metadata → Output: SPAM or HAM</p>
+  </div>
+</div>
+
+<!-- Regression -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 194px; width: 560px; height: 370px; background-color: #ffffff; border: 1px solid #A7F3D0; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 194px; width: 560px; height: 52px; background-color: #059669; border-top-left-radius: 8px; border-top-right-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 680px; top: 210px; font-size: 24px; color: #ffffff;"><i class="fa-solid fa-chart-line"></i></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 718px; top: 208px; width: 480px; color: #ffffff;">
+  <p style="margin: 0; font-size: 20px; font-weight: 700;">Task 2 — Regression</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 680px; top: 258px; width: 520px; color: #374151;">
+  <p style="margin: 0; font-size: 15px; line-height: 1.5;">Predict a <strong>continuous numeric value</strong> (target). Requires giving the algorithm many examples including both predictors and the target value.</p>
+  <hr style="border: 0; border-top: 1px solid #E5E7EB; margin: 14px 0;"/>
+  <p style="margin: 0; font-size: 14px; font-weight: 600; color: #1F2937;">Key concepts:</p>
+  <ul style="margin: 8px 0 0; padding-left: 20px; font-size: 14px; line-height: 1.7; color: #4B5563;">
+    <li><strong>Predictors:</strong> Input features (mileage, age, brand…)</li>
+    <li><strong>Target:</strong> Output value to predict (e.g., car price)</li>
+    <li><strong>Note:</strong> Some regression algorithms can also classify, and vice versa (e.g., Logistic Regression)</li>
+  </ul>
+  <div style="margin-top: 14px; background: #D1FAE5; border-radius: 6px; padding: 10px 12px;">
+    <p style="margin: 0; font-size: 13px; font-weight: 600; color: #065F46;">Example: Car Price Prediction</p>
+    <p style="margin: 4px 0 0; font-size: 13px; color: #047857;">Input: mileage, age, brand → Output: price in USD</p>
+  </div>
+</div>
+
+<!-- Key Algorithms row -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 578px; width: 1160px; height: 108px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 588px; width: 200px; color: #374151;">
+  <p style="margin: 0; font-size: 14px; font-weight: 700; color: #1F2937;">Important Algorithms</p>
+  <p style="margin: 4px 0 0; font-size: 12px; color: #9CA3AF;">(Covered throughout this book)</p>
+</div>
+<div style="position: absolute; left: 290px; top: 595px; display: flex; gap: 10px; flex-wrap: wrap; width: 920px;">
+  <div data-object="true" data-object-type="textbox" style="position: absolute; left: 290px; top: 598px; width: 920px; color: #374151;">
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <span style="font-size: 13px; background: #DBEAFE; color: #1D4ED8; padding: 5px 12px; border-radius: 20px; font-weight: 600;">k-Nearest Neighbours</span>
+      <span style="font-size: 13px; background: #D1FAE5; color: #065F46; padding: 5px 12px; border-radius: 20px; font-weight: 600;">Linear Regression</span>
+      <span style="font-size: 13px; background: #FEF3C7; color: #92400E; padding: 5px 12px; border-radius: 20px; font-weight: 600;">Logistic Regression</span>
+      <span style="font-size: 13px; background: #EDE9FE; color: #5B21B6; padding: 5px 12px; border-radius: 20px; font-weight: 600;">Support Vector Machines</span>
+      <span style="font-size: 13px; background: #FFF1F2; color: #9F1239; padding: 5px 12px; border-radius: 20px; font-weight: 600;">Decision Trees &amp; Random Forests</span>
+      <span style="font-size: 13px; background: #F0FDF4; color: #15803D; padding: 5px 12px; border-radius: 20px; font-weight: 600;">Neural Networks</span>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
