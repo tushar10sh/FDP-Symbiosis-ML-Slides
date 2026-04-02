@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Training Deep Neural Networks</title>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+        .grid-header { font-size: 14px; font-weight: 700; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; }
+        .code-snippet { font-family: 'Roboto Mono', monospace; font-size: 13px; color: #D946EF; background: #FDF4FF; padding: 4px 8px; border-radius: 4px; border: 1px solid #F0ABFC; display: inline-block; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 18px; width: 800px; height: 44px; color: #ffffff;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 44px;">Training Deep Neural Networks</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 900px; top: 28px; width: 320px; text-align: right; color: #9CA3AF;">
+<!-- <p style="margin: 0; font-size: 14px; font-family: 'Roboto Mono', monospace;">Ch. 11 (pp. 331–374)</p> -->
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 68px; background-color: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 115px; width: 30px; height: 30px; color: #DC2626; font-size: 24px;">
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 112px; width: 1060px; height: 52px; color: #7F1D1D; padding-right: 12px; box-sizing: border-box;">
+<strong style="font-size: 16px; line-height: 1.2;">The Challenge: Vanishing &amp; Exploding Gradients</strong>
+<p style="margin: 2px 0 0 0; font-size: 13px; line-height: 1.35;">Deep networks are hard to train because gradients can get smaller and smaller (vanishing) or larger and larger (exploding) as they propagate back through layers, making lower layers hard to train.</p>
+</div>
+<div class="grid-header" data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 180px; width: 300px; height: 20px;">Technique</div>
+<div class="grid-header" data-object="true" data-object-type="textbox" style="position: absolute; left: 400px; top: 180px; width: 400px; height: 20px;">What it Fixes / Benefit</div>
+<div class="grid-header" data-object="true" data-object-type="textbox" style="position: absolute; left: 840px; top: 180px; width: 380px; height: 20px;">How to Use (Keras/TF)</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 210px; width: 1160px; height: 85px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 235px; width: 40px; height: 40px; color: #3B82F6; font-size: 24px;">
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 230px; width: 250px; color: #1F2937;">
+<strong style="font-size: 16px;">Initialization</strong>
+<div style="font-size: 13px; color: #4B5563; margin-top: 4px;">He Init (for ReLU)<br/>Glorot/Xavier (for Tanh)</div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 400px; top: 225px; width: 420px; font-size: 14px; color: #374151; line-height: 1.4;">
+        Ensures variance of outputs approx. equals variance of inputs. Prevents signal from dying out or exploding at start.
+    </div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 840px; top: 235px; width: 360px;">
+<span class="code-snippet" style="color: #0369A1; background: #E0F2FE; border-color: #7DD3FC;">kernel_initializer="he_normal"</span>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 310px; width: 1160px; height: 85px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 335px; width: 40px; height: 40px; color: #059669; font-size: 24px;">
+<i class="fa-solid fa-scale-balanced"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 330px; width: 250px; color: #1F2937;">
+<strong style="font-size: 16px;">Batch Normalization</strong>
+<div style="font-size: 13px; color: #4B5563; margin-top: 4px;">Stabilization</div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 400px; top: 325px; width: 420px; font-size: 14px; color: #374151; line-height: 1.4;">
+        Fixes "Internal Covariate Shift". Zero-centers and normalizes inputs per layer. Allows higher learning rates.
+    </div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 840px; top: 335px; width: 360px;">
+<span class="code-snippet" style="color: #047857; background: #D1FAE5; border-color: #6EE7B7;">keras.layers.BatchNormalization()</span>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 410px; width: 1160px; height: 85px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 435px; width: 40px; height: 40px; color: #D97706; font-size: 24px;">
+<i class="fa-solid fa-gauge-high"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 430px; width: 250px; color: #1F2937;">
+<strong style="font-size: 16px;">Optimizers</strong>
+<div style="font-size: 13px; color: #4B5563; margin-top: 4px;">Adam, RMSProp, Nadam</div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 400px; top: 425px; width: 420px; font-size: 14px; color: #374151; line-height: 1.4;">
+        Adapts learning rate per parameter. Much faster convergence than standard SGD. Avoids local minima better.
+    </div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 840px; top: 435px; width: 360px;">
+<span class="code-snippet" style="color: #B45309; background: #FEF3C7; border-color: #FCD34D;">optimizer="adam"</span> or <span class="code-snippet" style="color: #B45309; background: #FEF3C7; border-color: #FCD34D;">"nadam"</span>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 510px; width: 1160px; height: 85px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 535px; width: 40px; height: 40px; color: #7C3AED; font-size: 24px;">
+<i class="fa-solid fa-scissors"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 530px; width: 250px; color: #1F2937;">
+<strong style="font-size: 16px;">Regularization</strong>
+<div style="font-size: 13px; color: #4B5563; margin-top: 4px;">Dropout, L2, Max-Norm</div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 400px; top: 525px; width: 420px; font-size: 14px; color: #374151; line-height: 1.4;">
+        Prevents overfitting by randomly disabling neurons (Dropout) or penalizing large weights. Forces robust features.
+    </div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 840px; top: 535px; width: 360px;">
+<span class="code-snippet" style="color: #6D28D9; background: #EDE9FE; border-color: #C4B5FD;">keras.layers.Dropout(rate=0.2)</span>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 610px; width: 1160px; height: 85px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 635px; width: 40px; height: 40px; color: #DB2777; font-size: 24px;">
+<i class="fa-solid fa-stopwatch"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 630px; width: 250px; color: #1F2937;">
+<strong style="font-size: 16px;">LR Scheduling</strong>
+<div style="font-size: 13px; color: #4B5563; margin-top: 4px;">ReduceOnPlateau, Exponential</div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 400px; top: 625px; width: 420px; font-size: 14px; color: #374151; line-height: 1.4;">
+        Start fast, then slow down. Helps fine-tune the final weights when validation loss stops improving.
+    </div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 840px; top: 635px; width: 360px;">
+<span class="code-snippet" style="color: #BE185D; background: #FCE7F3; border-color: #FBCFE8;">ReduceLROnPlateau(patience=5)</span>
+</div>
+</div>
+</body>
+</html>

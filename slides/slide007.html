@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Precision/Recall Trade-off &amp; ROC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 20px; width: 800px; height: 40px; color: #ffffff;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 40px;">Precision/Recall Trade-off &amp; ROC</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 900px; top: 28px; width: 320px; text-align: right; color: #9CA3AF;">
+<!-- <p style="margin: 0; font-size: 14px; font-family: 'Roboto Mono', monospace;">Ch. 3 (pp. 85–110)</p> -->
+</div>
+<!-- Section 1: Decision Threshold Trade-off -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 40px;">
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; color: #374151;">The Decision Threshold</h3>
+</div>
+<!-- Threshold Visualization Container -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 150px; width: 1162px; height: 150px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<!-- Threshold Line -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 100px; top: 220px; width: 1080px; height: 4px; background: linear-gradient(90deg, #EF4444 0%, #3B82F6 100%); border-radius: 2px;"></div>
+<!-- Threshold Slider Knob (Visual) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 640px; top: 212px; width: 4px; height: 20px; background-color: #111827; border-radius: 2px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 600px; top: 184px; width: 80px; text-align: center; font-size: 12px; font-weight: 700; color: #111827;">THRESHOLD</div>
+<!-- Trade-off Explanation -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 100px; top: 240px; width: 420px; text-align: left; color: #4B5563;">
+<p style="margin: 0; font-size: 14px;"><i class="fa-solid fa-arrow-left" style="color: #EF4444; margin-right: 5px;"></i> <strong>Lower Threshold</strong></p>
+<p style="margin: 5px 0 0 0; font-size: 13px; line-height: 1.35;">Captures more positives (↑ Recall), but includes more junk (↓ Precision).</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 760px; top: 240px; width: 420px; text-align: right; color: #4B5563;">
+<p style="margin: 0; font-size: 14px;"><strong>Higher Threshold</strong> <i class="fa-solid fa-arrow-right" style="color: #3B82F6; margin-left: 5px;"></i></p>
+<p style="margin: 5px 0 0 0; font-size: 13px; line-height: 1.35;">Predictions are purer (↑ Precision), but misses some positives (↓ Recall).</p>
+</div>
+<!-- Section 2: Curves Comparison -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 320px; width: 560px; height: 30px;">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #374151;">Precision-Recall (PR) Curve</h3>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 360px; width: 560px; height: 270px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="chart" style="position: absolute; left: 80px; top: 370px; width: 520px; height: 200px;">
+<canvas id="prCurveChart"></canvas>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 580px; width: 520px; font-size: 13px; color: #4B5563; line-height: 1.35;">
+<strong>When to use:</strong> Positive class is rare (imbalanced) or false positives are more important than false negatives.
+            <br/><span style="color: #2563EB; font-weight: 600;">Metric: Average Precision (AP)</span>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 660px; top: 320px; width: 560px; height: 30px;">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #374151;">ROC Curve (TPR vs. FPR)</h3>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 360px; width: 560px; height: 270px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="chart" style="position: absolute; left: 680px; top: 370px; width: 520px; height: 200px;">
+<canvas id="rocCurveChart"></canvas>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 680px; top: 580px; width: 520px; font-size: 13px; color: #4B5563; line-height: 1.35;">
+<strong>When to use:</strong> Classes are balanced or false negatives/positives are equally important.
+            <br/><span style="color: #059669; font-weight: 600;">Metric: Area Under Curve (AUC)</span>
+</div>
+<!-- Rule of Thumb Box -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 640px; width: 1160px; height: 60px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 655px; width: 30px; height: 30px; color: #2563EB; font-size: 24px;">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 650px; width: 1080px; color: #1E3A8A;">
+<p style="margin: 0; font-size: 14px; line-height: 1.45;"><strong>Golden Rule:</strong> If the positive class is rare (e.g., fraud detection, disease screening), the ROC curve can be overly optimistic. Always prefer the <strong>PR Curve</strong> for imbalanced datasets.</p>
+</div>
+</div>
+<script>
+        // PR Curve Chart
+        const ctxPR = document.getElementById('prCurveChart').getContext('2d');
+        new Chart(ctxPR, {
+            type: 'line',
+            data: {
+                labels: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                datasets: [{
+                    label: 'Precision',
+                    data: [1, 1, 0.98, 0.96, 0.94, 0.90, 0.85, 0.75, 0.60, 0.40, 0],
+                    borderColor: '#2563EB',
+                    borderWidth: 2,
+                    tension: 0.1,
+                    pointRadius: 0
+                }, {
+                    label: 'Perfect Classifier',
+                    data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    borderColor: '#10B981',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top', align: 'end', labels: { boxWidth: 10, font: { size: 10 } } },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Recall' }, min: 0, max: 1 },
+                    y: { title: { display: true, text: 'Precision' }, min: 0, max: 1.05 }
+                }
+            }
+        });
+
+        // ROC Curve Chart
+        const ctxROC = document.getElementById('rocCurveChart').getContext('2d');
+        new Chart(ctxROC, {
+            type: 'line',
+            data: {
+                labels: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                datasets: [{
+                    label: 'ROC Curve',
+                    data: [0, 0.5, 0.7, 0.8, 0.88, 0.92, 0.95, 0.97, 0.99, 1, 1],
+                    borderColor: '#059669',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(5, 150, 105, 0.1)',
+                    pointRadius: 0
+                }, {
+                    label: 'Random Guess',
+                    data: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                    borderColor: '#9CA3AF',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top', align: 'end', labels: { boxWidth: 10, font: { size: 10 } } },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'False Positive Rate (1 - Specificity)' }, min: 0, max: 1 },
+                    y: { title: { display: true, text: 'True Positive Rate (Recall)' }, min: 0, max: 1 }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

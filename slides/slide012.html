@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Introduction to Neural Networks with Keras</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 20px; width: 800px; height: 40px; color: #ffffff;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 40px;">Introduction to Neural Networks with Keras</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 900px; top: 28px; width: 320px; text-align: right; color: #9CA3AF;">
+<!-- <p style="margin: 0; font-size: 14px; font-family: 'Roboto Mono', monospace;">Ch. 10 (pp. 279–330)</p> -->
+</div>
+<!-- Left Column: Concepts & Architecture -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 110px; width: 520px; height: 580px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 135px; width: 30px; height: 30px; color: #DC2626; font-size: 24px;">
+<i class="fa-solid fa-brain"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 130px; width: 420px; color: #1F2937;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700;">Building Blocks</h3>
+<ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #4B5563;">
+<li><strong>Neuron (Perceptron):</strong> Computes weighted sum of inputs + bias.</li>
+<li><strong>Activation Functions:</strong> Adds non-linearity.
+                <ul style="margin: 5px 0 0 0; color: #6B7280; font-size: 13px;">
+<li><strong>ReLU:</strong> max(0, z) (Hidden layers default)</li>
+<li><strong>Sigmoid/Softmax:</strong> Probabilities (Output layer)</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- MLP Diagram -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 300px; width: 480px; height: 260px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="chart" style="position: absolute; left: 90px; top: 310px; width: 460px; height: 240px;">
+<canvas id="mlpDiagram"></canvas>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 580px; width: 480px; text-align: center; font-size: 13px; color: #6B7280;">
+<strong>Multilayer Perceptron (MLP):</strong> Input Layer → Hidden Layers → Output Layer
+    </div>
+<!-- Right Column: Keras Implementation -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 620px; top: 110px; width: 600px; height: 580px; background-color: #1E293B; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 640px; top: 130px; width: 560px; height: 30px; border-bottom: 1px solid #334155;">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #E2E8F0; font-family: 'Roboto Mono', monospace;">
+<i class="fa-brands fa-python" style="color: #38BDF8; margin-right: 8px;"></i>Keras Sequential API
+        </h3>
+</div>
+<!-- Code Block -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 640px; top: 170px; width: 560px; font-family: 'Roboto Mono', monospace; font-size: 11px; line-height: 1.6; color: #A5B4FC;">
+<span style="color: #94A3B8;"># 1. Build the Model</span><br/>
+<span style="color: #C084FC;">model</span> = <span style="color: #38BDF8;">keras.models.Sequential</span>([<br/>
+            <span style="color: #38BDF8;">keras.layers.Dense</span>(300, activation=<span style="color: #F472B6;">"relu"</span>, input_shape=[28*28]),<br/>
+            <span style="color: #38BDF8;">keras.layers.Dense</span>(100, activation=<span style="color: #F472B6;">"relu"</span>),<br/>
+            <span style="color: #38BDF8;">keras.layers.Dense</span>(10, activation=<span style="color: #F472B6;">"softmax"</span>) <span style="color: #64748B;"># Output: 10 classes</span><br/>
+        ])<br/><br/>
+<span style="color: #94A3B8;"># 2. Compile (Loss, Optimizer, Metrics)</span><br/>
+<span style="color: #C084FC;">model</span>.compile(<br/>
+            loss=<span style="color: #F472B6;">"sparse_categorical_crossentropy"</span>,<br/>
+            optimizer=<span style="color: #F472B6;">"sgd"</span>,<br/>
+            metrics=[<span style="color: #F472B6;">"accuracy"</span>]<br/>
+        )<br/><br/>
+<span style="color: #94A3B8;"># 3. Fit (Train)</span><br/>
+<span style="color: #C084FC;">history</span> = <span style="color: #C084FC;">model</span>.fit(<br/>
+            X_train, y_train,<br/>
+            epochs=30,<br/>
+            validation_data=(X_valid, y_valid)<br/>
+        )
+    </div>
+<!-- Visual Output/Result Box -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 640px; top: 520px; width: 560px; height: 150px; background-color: #0F172A; border: 1px solid #334155; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 660px; top: 535px; width: 520px; font-family: 'Roboto Mono', monospace; font-size: 12px; line-height: 1.5; color: #10B981;">
+        Train on 55000 samples, validate on 5000 samples<br/>
+        Epoch 1/30<br/>
+        55000/55000 [==============================] - 3s 52us/sample - <span style="color: #F59E0B;">loss: 0.6196</span> - <span style="color: #38BDF8;">accuracy: 0.8405</span> - val_loss: 0.3090 - val_accuracy: 0.9128<br/>
+        Epoch 2/30<br/>
+        ...
+    </div>
+</div>
+<script>
+    // Simple MLP Diagram using Chart.js scatter/line hack
+    const ctx = document.getElementById('mlpDiagram').getContext('2d');
+    
+    // Node positions
+    const inputLayer = [{x: 1, y: 1}, {x: 1, y: 2}, {x: 1, y: 3}, {x: 1, y: 4}];
+    const hidden1 = [{x: 2, y: 1.5}, {x: 2, y: 2.5}, {x: 2, y: 3.5}];
+    const hidden2 = [{x: 3, y: 1.5}, {x: 3, y: 2.5}, {x: 3, y: 3.5}];
+    const outputLayer = [{x: 4, y: 2}, {x: 4, y: 3}];
+
+    // Generate connections
+    const connections = [];
+    
+    function createConnections(layerA, layerB) {
+        layerA.forEach(a => {
+            layerB.forEach(b => {
+                connections.push({
+                    type: 'line',
+                    data: [{x: a.x, y: a.y}, {x: b.x, y: b.y}],
+                    borderColor: '#E5E7EB',
+                    borderWidth: 1,
+                    pointRadius: 0
+                });
+            });
+        });
+    }
+
+    createConnections(inputLayer, hidden1);
+    createConnections(hidden1, hidden2);
+    createConnections(hidden2, outputLayer);
+
+    const datasets = [
+        ...connections,
+        {
+            type: 'scatter',
+            label: 'Input',
+            data: inputLayer,
+            backgroundColor: '#3B82F6',
+            pointRadius: 8
+        },
+        {
+            type: 'scatter',
+            label: 'Hidden',
+            data: [...hidden1, ...hidden2],
+            backgroundColor: '#F59E0B',
+            pointRadius: 8
+        },
+        {
+            type: 'scatter',
+            label: 'Output',
+            data: outputLayer,
+            backgroundColor: '#10B981',
+            pointRadius: 8
+        }
+    ];
+
+    new Chart(ctx, {
+        type: 'scatter',
+        data: { datasets: datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: false }
+            },
+            scales: {
+                x: { display: false, min: 0.5, max: 4.5 },
+                y: { display: false, min: 0.5, max: 4.5 }
+            },
+            layout: {
+                padding: 10
+            }
+        }
+    });
+</script>
+</body>
+</html>

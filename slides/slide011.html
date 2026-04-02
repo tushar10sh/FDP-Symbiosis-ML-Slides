@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Random Forests &amp; Feature Importance</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 20px; width: 800px; height: 40px; color: #ffffff;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 40px;">Random Forests &amp; Feature Importance</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 900px; top: 28px; width: 320px; text-align: right; color: #9CA3AF;">
+<!-- <p style="margin: 0; font-size: 14px; font-family: 'Roboto Mono', monospace;">Ch. 7 (pp. 189–212)</p> -->
+</div>
+<!-- Left Column: How it Works & Hyperparameters -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 110px; width: 560px; height: 580px; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<!-- Section 1: Concept -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 135px; width: 30px; height: 30px; color: #059669; font-size: 24px;">
+<i class="fa-solid fa-tree"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 130px; width: 480px; color: #1F2937;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700;">How Random Forests Work</h3>
+<p style="margin: 10px 0 0 0; font-size: 14px; line-height: 1.5; color: #4B5563;">
+            An ensemble of Decision Trees, generally trained via the <strong>bagging</strong> method (typically with <code>max_samples</code> set to the size of the training set).
+        </p>
+<ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 14px; line-height: 1.45; color: #4B5563;">
+<li><strong>Extra Randomness:</strong> Instead of searching for the very best feature when splitting a node, it searches for the best feature among a <em>random subset</em> of features.</li>
+<li><strong>Result:</strong> Greater tree diversity, higher bias, but lower variance → better overall model.</li>
+</ul>
+</div>
+<!-- Visual Divider -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 320px; width: 520px; height: 1px; background-color: #E5E7EB;"></div>
+<!-- Section 2: Key Hyperparameters -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 325px; width: 30px; height: 30px; color: #3B82F6; font-size: 24px;">
+<i class="fa-solid fa-sliders"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 325px; width: 480px; color: #1F2937;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700;">Key Hyperparameters</h3>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 350px; width: 520px; font-size: 14px;">
+<table style="width: 100%; border-collapse: separate; border-spacing: 0 8px;">
+<tr>
+<td style="font-family: 'Roboto Mono', monospace; font-weight: 600; color: #1E40AF; width: 40%;">n_estimators</td>
+<td style="color: #4B5563;">Number of trees in the forest. More is better (but slower).</td>
+</tr>
+<tr>
+<td style="font-family: 'Roboto Mono', monospace; font-weight: 600; color: #1E40AF;">max_features</td>
+<td style="color: #4B5563;">Max features to consider at each split (critical for diversity).</td>
+</tr>
+<tr>
+<td style="font-family: 'Roboto Mono', monospace; font-weight: 600; color: #1E40AF;">max_depth</td>
+<td style="color: #4B5563;">Max depth of tree. Limits complexity.</td>
+</tr>
+<tr>
+<td style="font-family: 'Roboto Mono', monospace; font-weight: 600; color: #1E40AF;">min_samples_leaf</td>
+<td style="color: #4B5563;">Min samples required at a leaf node. Regularizes the tree.</td>
+</tr>
+</table>
+</div>
+<!-- Section 3: Validation -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 80px; top: 560px; width: 520px; height: 100px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 100px; top: 572px; width: 480px; color: #1E3A8A;">
+<strong style="font-size: 16px;">Out-of-Bag (OOB) Evaluation</strong>
+<p style="margin: 6px 0 0 0; font-size: 13px; line-height: 1.35;">
+            Since bootstrapping leaves out ~37% of instances for each tree, these "out-of-bag" instances can be used as a validation set without needing a separate hold-out set.
+        </p>
+</div>
+<!-- Right Column: Feature Importance Visualization -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 110px; width: 560px; height: 580px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 690px; top: 135px; width: 30px; height: 30px; color: #7C3AED; font-size: 24px;">
+<i class="fa-solid fa-chart-bar"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 730px; top: 130px; width: 460px; color: #1F2937;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700;">Feature Importance</h3>
+<p style="margin: 5px 0 0 0; font-size: 14px; color: #6B7280;">Sklearn measures importance by looking at how much the tree nodes that use that feature reduce impurity on average.</p>
+</div>
+<!-- Chart Container -->
+<div data-object="true" data-object-type="chart" style="position: absolute; left: 690px; top: 200px; width: 500px; height: 380px;">
+<canvas id="featureImportanceChart"></canvas>
+</div>
+<!-- Interpretation Box -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 690px; top: 600px; width: 500px; text-align: center; font-size: 13px; color: #6B7280;">
+<i class="fa-solid fa-circle-info" style="color: #6B7280; margin-right: 5px;"></i>
+        Useful for feature selection and understanding the data.
+    </div>
+</div>
+<script>
+    const ctx = document.getElementById('featureImportanceChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Median Income', 'Inbox Temp', 'Population', 'Longitude', 'Latitude', 'House Age', 'Rooms', 'Bedrooms'],
+            datasets: [{
+                label: 'Relative Importance',
+                data: [0.38, 0.16, 0.14, 0.10, 0.09, 0.06, 0.04, 0.03],
+                backgroundColor: [
+                    '#4F46E5',
+                    '#6366F1',
+                    '#818CF8',
+                    '#A5B4FC',
+                    '#C7D2FE',
+                    '#E0E7FF',
+                    '#E0E7FF',
+                    '#E0E7FF'
+                ],
+                borderColor: '#4338CA',
+                borderWidth: 1,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                title: { display: false }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: 0.45,
+                    grid: { color: '#F3F4F6' },
+                    ticks: {
+                        callback: function(value) {
+                            return (value * 100) + '%';
+                        },
+                        font: { size: 11 }
+                    }
+                },
+                y: {
+                    grid: { display: false },
+                    ticks: {
+                        font: { size: 12, weight: 'bold' },
+                        color: '#374151'
+                    }
+                }
+            },
+            layout: {
+                padding: { left: 0, right: 20, top: 0, bottom: 0 }
+            }
+        }
+    });
+</script>
+</body>
+</html>

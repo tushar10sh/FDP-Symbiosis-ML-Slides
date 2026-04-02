@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Ensemble Learning Methods</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 20px; width: 800px; height: 40px; color: #ffffff;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 40px;">Ensemble Learning Methods</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 900px; top: 28px; width: 320px; text-align: right; color: #9CA3AF;">
+<!-- <p style="margin: 0; font-size: 14px; font-family: 'Roboto Mono', monospace;">Ch. 7 (pp. 189–212)</p> -->
+</div>
+<!-- Concept Box -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 110px; width: 1160px; height: 80px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 130px; width: 30px; height: 30px; color: #2563EB; font-size: 24px;">
+<i class="fa-solid fa-users-viewfinder"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 122px; width: 1060px; color: #1E3A8A;">
+<strong style="font-size: 18px;">Why Ensembles Work?</strong>
+<p style="margin: 5px 0 0 0; font-size: 14px; line-height: 1.4;">"The Wisdom of the Crowd": Aggregating predictions from a group of predictors (even weak ones) often yields better results than the best individual predictor, reducing both <strong>bias</strong> and <strong>variance</strong>.</p>
+</div>
+<!-- Column 1: Parallel Methods (Bagging) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 210px; width: 370px; height: 480px; background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 230px; width: 330px; height: 30px;">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #0F172A; border-bottom: 2px solid #3B82F6; padding-bottom: 8px;">Parallel Ensembles</h3>
+</div>
+<!-- Bagging Diagram -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 165px; top: 280px; width: 160px; height: 100px; background-color: #ffffff; border: 1px solid #CBD5E1; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 180px; top: 295px; width: 20px; height: 20px; color: #64748B;">
+<i class="fa-solid fa-file"></i>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 210px; top: 295px; width: 20px; height: 20px; color: #64748B;">
+<i class="fa-solid fa-file"></i>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 240px; top: 295px; width: 20px; height: 20px; color: #64748B;">
+<i class="fa-solid fa-file"></i>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 180px; top: 330px; width: 20px; height: 40px; border-left: 1px dashed #94A3B8;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 210px; top: 330px; width: 20px; height: 40px; border-left: 1px dashed #94A3B8;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 240px; top: 330px; width: 20px; height: 40px; border-left: 1px dashed #94A3B8;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 400px; width: 330px; color: #334155; font-size: 14px;">
+<ul style="margin: 0; padding-left: 20px; line-height: 1.5;">
+<li><strong>Bagging:</strong> Bootstrap Aggregating. Sampling <em>with</em> replacement. Reduces variance.</li>
+<li><strong>Pasting:</strong> Sampling <em>without</em> replacement.</li>
+<li><strong>Feature Sampling:</strong>
+<ul style="margin: 5px 0 0 0; padding-left: 15px; color: #64748B; font-size: 13px;">
+<li>Random Subspaces (features only)</li>
+<li>Random Patches (features + instances)</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- Column 2: Sequential Methods (Boosting) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 455px; top: 210px; width: 370px; height: 480px; background-color: #FFF7ED; border: 1px solid #FFEDD5; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 475px; top: 230px; width: 330px; height: 30px;">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #9A3412; border-bottom: 2px solid #F97316; padding-bottom: 8px;">Sequential Ensembles</h3>
+</div>
+<!-- Boosting Diagram -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 560px; top: 280px; width: 160px; height: 100px; background-color: #ffffff; border: 1px solid #FDBA74; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 575px; top: 320px; width: 20px; height: 20px; color: #F97316;">
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 605px; top: 320px; width: 20px; height: 20px; color: #F97316;">
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 635px; top: 320px; width: 20px; height: 20px; color: #F97316;">
+<i class="fa-solid fa-arrow-right"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 475px; top: 400px; width: 330px; color: #7C2D12; font-size: 14px;">
+<ul style="margin: 0; padding-left: 20px; line-height: 1.5;">
+<li><strong>Boosting:</strong> Train predictors sequentially, each correcting its predecessor. Reduces bias.</li>
+<li><strong>AdaBoost:</strong> Pay more attention to underfitted training instances.</li>
+<li><strong>Gradient Boosting:</strong> Fit new predictor to the <em>residual errors</em> of the previous one.</li>
+</ul>
+</div>
+<!-- Column 3: Stacking -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 850px; top: 210px; width: 370px; height: 480px; background-color: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 870px; top: 230px; width: 330px; height: 30px;">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #4C1D95; border-bottom: 2px solid #8B5CF6; padding-bottom: 8px;">Stacking (Stacked Generalization)</h3>
+</div>
+<!-- Stacking Diagram -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 955px; top: 280px; width: 160px; height: 100px; background-color: #ffffff; border: 1px solid #C4B5FD; border-radius: 4px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 1025px; top: 290px; width: 20px; height: 20px; color: #8B5CF6;">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 980px; top: 330px; width: 110px; height: 2px; background-color: #8B5CF6;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 1035px; top: 330px; width: 2px; height: 30px; background-color: #8B5CF6;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 870px; top: 400px; width: 330px; color: #4C1D95; font-size: 14px;">
+<p style="margin: 0; line-height: 1.6;">Instead of trivial voting, train a <strong>Meta-Learner</strong> (Blender) to aggregate predictions.</p>
+<ul style="margin: 10px 0 0 0; padding-left: 20px; line-height: 1.5;">
+<li>Layer 1: Base Predictors</li>
+<li>Layer 2: Meta-Learner (trained on hold-out set predictions)</li>
+<li>Can have multiple layers.</li>
+</ul>
+</div>
+<!-- Bottom Guideline Box -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 455px; top: 600px; width: 370px; height: 70px; font-size: 13px; color: #9A3412; background-color: #FFEDD5; padding: 10px; border-radius: 4px; border-left: 4px solid #F97316;">
+<strong>Guideline:</strong> Boosting is powerful but harder to parallelize than Bagging. Watch out for outliers with AdaBoost.
+        </div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 600px; width: 370px; height: 70px; font-size: 13px; color: #1E3A8A; background-color: #DBEAFE; padding: 10px; border-radius: 4px; border-left: 4px solid #2563EB;">
+<strong>Guideline:</strong> Bagging works best with complex models (low bias, high variance) like Decision Trees.
+        </div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 850px; top: 600px; width: 370px; height: 70px; font-size: 13px; color: #5B21B6; background-color: #EDE9FE; padding: 10px; border-radius: 4px; border-left: 4px solid #7C3AED;">
+<strong>Guideline:</strong> Stacking often wins competitions (Kaggle) but adds complexity to the pipeline.
+        </div>
+</div>
+</body>
+</html>

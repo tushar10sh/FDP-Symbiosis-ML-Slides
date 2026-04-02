@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Main ML Challenges</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 20px; width: 800px; height: 40px; color: #ffffff;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 40px;">Main ML Challenges</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 900px; top: 28px; width: 320px; text-align: right; color: #9CA3AF;">
+<!-- <p style="margin: 0; font-size: 14px; font-family: 'Roboto Mono', monospace;">Ch. 1 (pp. 1–34)</p> -->
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 110px; width: 570px; height: 280px; background-color: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 130px; width: 30px; height: 30px; color: #DC2626; font-size: 24px;">
+<i class="fa-solid fa-database"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 125px; width: 490px; color: #991B1B;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700;">Challenge 1: Bad Data</h3>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 170px; width: 530px; color: #4B5563;">
+<div style="display: flex; flex-direction: column; gap: 15px;">
+<div style="display: flex; gap: 12px; align-items: start;">
+<i class="fa-solid fa-scale-unbalanced" style="color: #EF4444; margin-top: 4px;"></i>
+<div>
+<strong style="color: #1F2937;">Insufficient Quantity</strong>
+<p style="margin: 2px 0 0 0; font-size: 14px;">ML needs thousands of examples. "The Unreasonable Effectiveness of Data."</p>
+</div>
+</div>
+<div style="display: flex; gap: 12px; align-items: start;">
+<i class="fa-solid fa-bullseye" style="color: #EF4444; margin-top: 4px;"></i>
+<div>
+<strong style="color: #1F2937;">Nonrepresentative Data</strong>
+<p style="margin: 2px 0 0 0; font-size: 14px;">Sampling bias (e.g., "Dewey Defeats Truman"). Data must reflect the real world.</p>
+</div>
+</div>
+<div style="display: flex; gap: 12px; align-items: start;">
+<i class="fa-solid fa-filter" style="color: #EF4444; margin-top: 4px;"></i>
+<div>
+<strong style="color: #1F2937;">Poor Quality &amp; Irrelevant Features</strong>
+<p style="margin: 2px 0 0 0; font-size: 14px;">Errors, outliers, and noise. Garbage In, Garbage Out.</p>
+</div>
+</div>
+</div>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 650px; top: 110px; width: 570px; height: 280px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 670px; top: 130px; width: 30px; height: 30px; color: #2563EB; font-size: 24px;">
+<i class="fa-solid fa-brain"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 710px; top: 125px; width: 490px; color: #1E40AF;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700;">Challenge 2: Bad Algorithms</h3>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 670px; top: 170px; width: 530px; color: #4B5563;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+<div style="background: #FFFFFF; padding: 15px; border-radius: 6px; border: 1px solid #DBEAFE;">
+<strong style="color: #DC2626; display: block; margin-bottom: 5px;">Overfitting</strong>
+<p style="margin: 0; font-size: 14px;">Model learns the noise, not the signal. Performs well on train, poor on test.</p>
+<div style="margin-top: 10px; font-size: 12px; color: #6B7280;">
+<i class="fa-solid fa-arrow-trend-up"></i> High Variance
+                </div>
+</div>
+<div style="background: #FFFFFF; padding: 15px; border-radius: 6px; border: 1px solid #DBEAFE;">
+<strong style="color: #059669; display: block; margin-bottom: 5px;">Underfitting</strong>
+<p style="margin: 0; font-size: 14px;">Model is too simple to capture the underlying structure.</p>
+<div style="margin-top: 10px; font-size: 12px; color: #6B7280;">
+<i class="fa-solid fa-minus"></i> High Bias
+                </div>
+</div>
+</div>
+<p style="margin: 15px 0 0 0; font-size: 14px; font-style: italic; color: #4B5563; border-top: 1px solid #DBEAFE; padding-top: 10px;">
+            "The goal is to generalize to new instances, not just memorize training data."
+        </p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 410px; width: 570px; height: 280px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 425px; width: 530px; height: 30px;">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #374151;">The Bias-Variance Trade-off</h3>
+</div>
+<div data-object="true" data-object-type="chart" style="position: absolute; left: 80px; top: 460px; width: 530px; height: 210px;">
+<canvas id="biasVarianceChart"></canvas>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 100px; top: 598px; width: 100px; text-align: center; font-size: 12px; color: #6B7280; font-weight: 600;">Underfitting<br/>(High Bias)</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 470px; top: 598px; width: 100px; text-align: center; font-size: 12px; color: #6B7280; font-weight: 600;">Overfitting<br/>(High Variance)</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 280px; top: 630px; width: 140px; text-align: center; font-size: 12px; color: #9CA3AF;">Model Complexity →</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 650px; top: 410px; width: 570px; height: 280px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 670px; top: 425px; width: 530px; height: 30px;">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #374151;">Mitigation Strategies</h3>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 670px; top: 460px; width: 530px; height: 220px; font-size: 13px;">
+<table style="width: 100%; border-collapse: collapse; text-align: left; table-layout: fixed;">
+<thead>
+<tr style="border-bottom: 2px solid #E5E7EB; background-color: #F9FAFB;">
+<th style="padding: 10px; color: #374151; font-weight: 600; width: 18%;">Symptom</th>
+<th style="padding: 10px; color: #374151; font-weight: 600; width: 40%;">Likely Cause</th>
+<th style="padding: 10px; color: #374151; font-weight: 600; width: 42%;">Fix / Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid #F3F4F6;">
+<td style="padding: 12px 10px; color: #DC2626; font-weight: 600; vertical-align: top;">High Variance<br/><span style="font-size: 12px; font-weight: 400; color: #6B7280;">(Overfitting)</span></td>
+<td style="padding: 12px 10px; color: #4B5563; vertical-align: top;">Model is too complex; too many parameters relative to data.</td>
+<td style="padding: 12px 10px; color: #1F2937; vertical-align: top;">
+<ul style="margin: 0; padding-left: 16px;">
+<li>Get more training data</li>
+<li>Simplify model</li>
+<li><strong>Regularization</strong></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="padding: 12px 10px; color: #059669; font-weight: 600; vertical-align: top;">High Bias<br/><span style="font-size: 12px; font-weight: 400; color: #6B7280;">(Underfitting)</span></td>
+<td style="padding: 12px 10px; color: #4B5563; vertical-align: top;">Model is too simple; assumptions too strong.</td>
+<td style="padding: 12px 10px; color: #1F2937; vertical-align: top;">
+<ul style="margin: 0; padding-left: 16px;">
+<li>More complex model</li>
+<li>Better features</li>
+<li>Reduce regularization</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<script>
+    const ctx = document.getElementById('biasVarianceChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Simple', '', '', '', 'Balanced', '', '', '', 'Complex'],
+            datasets: [
+                {
+                    label: 'Validation Error',
+                    data: [15, 9, 6, 4.5, 4, 4.5, 6, 9, 15],
+                    borderColor: '#DC2626',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 0
+                },
+                {
+                    label: 'Training Error',
+                    data: [14, 8, 5, 3, 2, 1.5, 1.2, 1, 0.8],
+                    borderColor: '#2563EB',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 0
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        usePointStyle: true,
+                        font: { family: 'Inter', size: 12 }
+                    }
+                },
+                tooltip: { enabled: false }
+            },
+            scales: {
+                x: {
+                    display: false,
+                    grid: { display: false }
+                },
+                y: {
+                    display: true,
+                    title: { display: true, text: 'Error' },
+                    grid: { display: false, drawBorder: true },
+                    ticks: { display: false }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

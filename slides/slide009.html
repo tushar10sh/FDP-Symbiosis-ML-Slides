@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Gradient Descent &amp; Learning Rate</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<style>
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #f3f4f6; font-family: 'Inter', sans-serif; }
+        .slide-container { position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 80px; background-color: #111827;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 20px; width: 800px; height: 40px; color: #ffffff;">
+<h1 style="margin: 0; font-size: 32px; font-weight: 700; line-height: 40px;">Gradient Descent &amp; Learning Rate</h1>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 900px; top: 28px; width: 320px; text-align: right; color: #9CA3AF;">
+<!-- <p style="margin: 0; font-size: 14px; font-family: 'Roboto Mono', monospace;">Ch. 4 (pp. 111–152)</p> -->
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 100px; width: 1160px; height: 30px;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600; color: #374151;">Gradient Descent Variants</h3>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 140px; width: 370px; height: 160px; background-color: #F3F4F6; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 160px; width: 30px; height: 30px; color: #4B5563; font-size: 20px;">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 155px; width: 290px; color: #1F2937;">
+<strong style="font-size: 16px;">Batch GD</strong>
+<p style="margin: 5px 0 0 0; font-size: 13px; line-height: 1.4; color: #4B5563;">Uses the <strong>whole training set</strong> at every step. Slow on large data, but stable convergence.</p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 455px; top: 140px; width: 370px; height: 160px; background-color: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 475px; top: 160px; width: 30px; height: 30px; color: #DC2626; font-size: 20px;">
+<i class="fa-solid fa-dice"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 515px; top: 155px; width: 290px; color: #7F1D1D;">
+<strong style="font-size: 16px;">Stochastic GD</strong>
+<p style="margin: 5px 0 0 0; font-size: 13px; line-height: 1.4; color: #7F1D1D;">Picks <strong>one random instance</strong> per step. Very fast but erratic (bounces around minimum).</p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 850px; top: 140px; width: 370px; height: 160px; background-color: #ECFDF5; border: 1px solid #D1FAE5; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 870px; top: 160px; width: 30px; height: 30px; color: #059669; font-size: 20px;">
+<i class="fa-solid fa-boxes-stacked"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 910px; top: 155px; width: 290px; color: #064E3B;">
+<strong style="font-size: 16px;">Mini-batch GD</strong>
+<p style="margin: 5px 0 0 0; font-size: 13px; line-height: 1.4; color: #065F46;">Uses <strong>small random sets</strong> (e.g., 32). Best balance of speed and stability. GPU friendly.</p>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 320px; width: 1160px; height: 30px;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600; color: #374151;">Learning Rate \(\eta\) Impact</h3>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 360px; width: 1160px; height: 240px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px;"></div>
+<div data-object="true" data-object-type="chart" style="position: absolute; left: 80px; top: 370px; width: 1120px; height: 200px;">
+<canvas id="learningRateChart"></canvas>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 570px; width: 1160px; text-align: center; font-size: 13px; color: #6B7280;">
+<span style="color: #6B7280; font-weight: bold;">— Too Small (Slow)</span>    
+        <span style="color: #10B981; font-weight: bold;">— Just Right (Fast &amp; Converges)</span>    
+        <span style="color: #EF4444; font-weight: bold;">— Too Large (Diverges)</span>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 620px; width: 1160px; height: 90px; background-color: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px;"></div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 80px; top: 645px; width: 30px; height: 30px; color: #2563EB; font-size: 24px;">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 130px; top: 630px; width: 1060px; height: 60px; color: #1E3A8A;">
+<strong style="font-size: 16px;">Practical Tips for Success</strong>
+<div style="display: flex; gap: 40px; margin-top: 5px; font-size: 14px; line-height: 1.3;">
+<div style="flex: 1;"><i class="fa-solid fa-check" style="color: #3B82F6; margin-right: 5px;"></i> <strong>Feature Scaling is Critical:</strong> GD converges much faster if all features are on similar scales (e.g., StandardScaler).</div>
+<div style="flex: 1;"><i class="fa-solid fa-check" style="color: #3B82F6; margin-right: 5px;"></i> <strong>Learning Schedules:</strong> Start with a large learning rate and reduce it gradually during training.</div>
+<div style="flex: 1;"><i class="fa-solid fa-check" style="color: #3B82F6; margin-right: 5px;"></i> <strong>Monitor Loss:</strong> Plot loss curves during training to spot divergence early.</div>
+</div>
+</div>
+</div>
+<script>
+    const ctxLR = document.getElementById('learningRateChart').getContext('2d');
+    const iterations = Array.from({length: 50}, (_, i) => i);
+    const tooSmall = iterations.map(i => 2.0 - 0.02 * i);
+    const justRight = iterations.map(i => 2.0 * Math.exp(-0.1 * i));
+    const tooLarge = iterations.map(i => {
+        let val = 0.5 + 0.05 * i + 0.5 * Math.sin(i);
+        return val > 2.5 ? 2.5 : val;
+    });
+
+    new Chart(ctxLR, {
+        type: 'line',
+        data: {
+            labels: iterations,
+            datasets: [
+                {
+                    label: 'Too Small',
+                    data: tooSmall,
+                    borderColor: '#9CA3AF',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    tension: 0.1
+                },
+                {
+                    label: 'Just Right',
+                    data: justRight,
+                    borderColor: '#10B981',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0.3
+                },
+                {
+                    label: 'Too Large',
+                    data: tooLarge,
+                    borderColor: '#EF4444',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    borderDash: [5, 5],
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                title: { display: false }
+            },
+            scales: {
+                x: {
+                    title: { display: true, text: 'Iterations / Epochs' },
+                    grid: { display: false }
+                },
+                y: {
+                    title: { display: true, text: 'Loss (Cost Function)' },
+                    min: 0,
+                    max: 2.5
+                }
+            },
+            layout: {
+                padding: { left: 10, right: 20, top: 10, bottom: 10 }
+            }
+        }
+    });
+</script>
+</body>
+</html>
